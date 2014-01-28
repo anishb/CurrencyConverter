@@ -1,1086 +1,526 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>39473AEC772146C79A3B7ABD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-		</dict>
-		<key>568336EF1FBB4FF99A983E36</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FB496902FACC4C7982D2AEA9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9491EEB064B543E6ADFDC6AB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>DFA850C6736547AEB962A014</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>FA8A03DC18976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A03EE18976BDC00344A6B</string>
-				<string>FA8A040D18976BDC00344A6B</string>
-				<string>FA8A03E718976BDC00344A6B</string>
-				<string>FA8A03E618976BDC00344A6B</string>
-				<string>39473AEC772146C79A3B7ABD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03DD18976BDC00344A6B</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0500</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Anish Basu</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>FA8A040518976BDC00344A6B</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>FA8A03E418976BDC00344A6B</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>FA8A03E018976BDC00344A6B</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>FA8A03DC18976BDC00344A6B</string>
-			<key>productRefGroup</key>
-			<string>FA8A03E618976BDC00344A6B</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>FA8A03E418976BDC00344A6B</string>
-				<string>FA8A040518976BDC00344A6B</string>
-			</array>
-		</dict>
-		<key>FA8A03E018976BDC00344A6B</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>FA8A041518976BDC00344A6B</string>
-				<string>FA8A041618976BDC00344A6B</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>FA8A03E118976BDC00344A6B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FA8A03FF18976BDC00344A6B</string>
-				<string>FA8A03F918976BDC00344A6B</string>
-				<string>FA8A03F518976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA8A03E218976BDC00344A6B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FA8A03EB18976BDC00344A6B</string>
-				<string>FA8A03ED18976BDC00344A6B</string>
-				<string>FA8A03E918976BDC00344A6B</string>
-				<string>568336EF1FBB4FF99A983E36</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA8A03E318976BDC00344A6B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FA8A040118976BDC00344A6B</string>
-				<string>FA8A03F318976BDC00344A6B</string>
-				<string>FA8A03FC18976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA8A03E418976BDC00344A6B</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>FA8A041718976BDC00344A6B</string>
-			<key>buildPhases</key>
-			<array>
-				<string>9491EEB064B543E6ADFDC6AB</string>
-				<string>FA8A03E118976BDC00344A6B</string>
-				<string>FA8A03E218976BDC00344A6B</string>
-				<string>FA8A03E318976BDC00344A6B</string>
-				<string>DFA850C6736547AEB962A014</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>CurrencyConverter</string>
-			<key>productName</key>
-			<string>CurrencyConverter</string>
-			<key>productReference</key>
-			<string>FA8A03E518976BDC00344A6B</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>FA8A03E518976BDC00344A6B</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>CurrencyConverter.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>FA8A03E618976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A03E518976BDC00344A6B</string>
-				<string>FA8A040618976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03E718976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A03E818976BDC00344A6B</string>
-				<string>FA8A03EA18976BDC00344A6B</string>
-				<string>FA8A03EC18976BDC00344A6B</string>
-				<string>FA8A040718976BDC00344A6B</string>
-				<string>FB496902FACC4C7982D2AEA9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03E818976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>FA8A03E918976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03E818976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A03EA18976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>FA8A03EB18976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03EA18976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A03EC18976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>FA8A03ED18976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03EC18976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A03EE18976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A03F718976BDC00344A6B</string>
-				<string>FA8A03F818976BDC00344A6B</string>
-				<string>FA8A03FA18976BDC00344A6B</string>
-				<string>FA8A03FD18976BDC00344A6B</string>
-				<string>FA8A03FE18976BDC00344A6B</string>
-				<string>FA8A040018976BDC00344A6B</string>
-				<string>FA8A03EF18976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>CurrencyConverter</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03EF18976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A03F018976BDC00344A6B</string>
-				<string>FA8A03F118976BDC00344A6B</string>
-				<string>FA8A03F418976BDC00344A6B</string>
-				<string>FA8A03F618976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03F018976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>CurrencyConverter-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03F118976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A03F218976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03F218976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03F318976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03F118976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A03F418976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03F518976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03F418976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A03F618976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CurrencyConverter-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03F718976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03F818976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03F918976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03F818976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A03FA18976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A03FB18976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03FB18976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03FC18976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03FA18976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A03FD18976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03FE18976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A03FF18976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03FE18976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A040018976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A040118976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A040018976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A040218976BDC00344A6B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FA8A041418976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA8A040318976BDC00344A6B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FA8A040818976BDC00344A6B</string>
-				<string>FA8A040A18976BDC00344A6B</string>
-				<string>FA8A040918976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA8A040418976BDC00344A6B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>FA8A041218976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>FA8A040518976BDC00344A6B</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>FA8A041A18976BDC00344A6B</string>
-			<key>buildPhases</key>
-			<array>
-				<string>FA8A040218976BDC00344A6B</string>
-				<string>FA8A040318976BDC00344A6B</string>
-				<string>FA8A040418976BDC00344A6B</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>FA8A040C18976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>CurrencyConverterTests</string>
-			<key>productName</key>
-			<string>CurrencyConverterTests</string>
-			<key>productReference</key>
-			<string>FA8A040618976BDC00344A6B</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>FA8A040618976BDC00344A6B</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>CurrencyConverterTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>FA8A040718976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>FA8A040818976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A040718976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A040918976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03E818976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A040A18976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A03EC18976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A040B18976BDC00344A6B</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>FA8A03DD18976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>FA8A03E418976BDC00344A6B</string>
-			<key>remoteInfo</key>
-			<string>CurrencyConverter</string>
-		</dict>
-		<key>FA8A040C18976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>FA8A03E418976BDC00344A6B</string>
-			<key>targetProxy</key>
-			<string>FA8A040B18976BDC00344A6B</string>
-		</dict>
-		<key>FA8A040D18976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A041318976BDC00344A6B</string>
-				<string>FA8A040E18976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>CurrencyConverterTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A040E18976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A040F18976BDC00344A6B</string>
-				<string>FA8A041018976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A040F18976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>CurrencyConverterTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A041018976BDC00344A6B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FA8A041118976BDC00344A6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A041118976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A041218976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A041018976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A041318976BDC00344A6B</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>CurrencyConverterTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FA8A041418976BDC00344A6B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA8A041318976BDC00344A6B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FA8A041518976BDC00344A6B</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>FA8A041618976BDC00344A6B</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>FA8A041718976BDC00344A6B</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>FA8A041818976BDC00344A6B</string>
-				<string>FA8A041918976BDC00344A6B</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>FA8A041818976BDC00344A6B</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>39473AEC772146C79A3B7ABD</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CurrencyConverter/CurrencyConverter-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>CurrencyConverter/CurrencyConverter-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>FA8A041918976BDC00344A6B</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>39473AEC772146C79A3B7ABD</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CurrencyConverter/CurrencyConverter-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>CurrencyConverter/CurrencyConverter-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>FA8A041A18976BDC00344A6B</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>FA8A041B18976BDC00344A6B</string>
-				<string>FA8A041C18976BDC00344A6B</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>FA8A041B18976BDC00344A6B</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/CurrencyConverter.app/CurrencyConverter</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CurrencyConverter/CurrencyConverter-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>CurrencyConverterTests/CurrencyConverterTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>FA8A041C18976BDC00344A6B</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/CurrencyConverter.app/CurrencyConverter</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>CurrencyConverter/CurrencyConverter-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>CurrencyConverterTests/CurrencyConverterTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>FB496902FACC4C7982D2AEA9</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>FA8A03DD18976BDC00344A6B</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		568336EF1FBB4FF99A983E36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB496902FACC4C7982D2AEA9 /* libPods.a */; };
+		FA8A03E918976BDC00344A6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03E818976BDC00344A6B /* Foundation.framework */; };
+		FA8A03EB18976BDC00344A6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EA18976BDC00344A6B /* CoreGraphics.framework */; };
+		FA8A03ED18976BDC00344A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EC18976BDC00344A6B /* UIKit.framework */; };
+		FA8A03F318976BDC00344A6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA8A03F118976BDC00344A6B /* InfoPlist.strings */; };
+		FA8A03F518976BDC00344A6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A03F418976BDC00344A6B /* main.m */; };
+		FA8A03F918976BDC00344A6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A03F818976BDC00344A6B /* AppDelegate.m */; };
+		FA8A03FC18976BDC00344A6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8A03FA18976BDC00344A6B /* Main.storyboard */; };
+		FA8A03FF18976BDC00344A6B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A03FE18976BDC00344A6B /* ViewController.m */; };
+		FA8A040118976BDC00344A6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8A040018976BDC00344A6B /* Images.xcassets */; };
+		FA8A040818976BDC00344A6B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A040718976BDC00344A6B /* XCTest.framework */; };
+		FA8A040918976BDC00344A6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03E818976BDC00344A6B /* Foundation.framework */; };
+		FA8A040A18976BDC00344A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EC18976BDC00344A6B /* UIKit.framework */; };
+		FA8A041218976BDC00344A6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA8A041018976BDC00344A6B /* InfoPlist.strings */; };
+		FA8A041418976BDC00344A6B /* CurrencyConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A041318976BDC00344A6B /* CurrencyConverterTests.m */; };
+		FA8A042018977DF400344A6B /* YahooCurrencyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A041F18977DF400344A6B /* YahooCurrencyClient.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA8A040B18976BDC00344A6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA8A03DD18976BDC00344A6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA8A03E418976BDC00344A6B;
+			remoteInfo = CurrencyConverter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		39473AEC772146C79A3B7ABD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FA8A03E518976BDC00344A6B /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8A03E818976BDC00344A6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA8A03EA18976BDC00344A6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FA8A03EC18976BDC00344A6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FA8A03F018976BDC00344A6B /* CurrencyConverter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CurrencyConverter-Info.plist"; sourceTree = "<group>"; };
+		FA8A03F218976BDC00344A6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA8A03F418976BDC00344A6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA8A03F618976BDC00344A6B /* CurrencyConverter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CurrencyConverter-Prefix.pch"; sourceTree = "<group>"; };
+		FA8A03F718976BDC00344A6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FA8A03F818976BDC00344A6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FA8A03FB18976BDC00344A6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA8A03FD18976BDC00344A6B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA8A03FE18976BDC00344A6B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA8A040018976BDC00344A6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FA8A040618976BDC00344A6B /* CurrencyConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8A040718976BDC00344A6B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FA8A040F18976BDC00344A6B /* CurrencyConverterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CurrencyConverterTests-Info.plist"; sourceTree = "<group>"; };
+		FA8A041118976BDC00344A6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA8A041318976BDC00344A6B /* CurrencyConverterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyConverterTests.m; sourceTree = "<group>"; };
+		FA8A041E18977DF400344A6B /* YahooCurrencyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahooCurrencyClient.h; sourceTree = "<group>"; };
+		FA8A041F18977DF400344A6B /* YahooCurrencyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahooCurrencyClient.m; sourceTree = "<group>"; };
+		FB496902FACC4C7982D2AEA9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA8A03E218976BDC00344A6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8A03EB18976BDC00344A6B /* CoreGraphics.framework in Frameworks */,
+				FA8A03ED18976BDC00344A6B /* UIKit.framework in Frameworks */,
+				FA8A03E918976BDC00344A6B /* Foundation.framework in Frameworks */,
+				568336EF1FBB4FF99A983E36 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8A040318976BDC00344A6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8A040818976BDC00344A6B /* XCTest.framework in Frameworks */,
+				FA8A040A18976BDC00344A6B /* UIKit.framework in Frameworks */,
+				FA8A040918976BDC00344A6B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA8A03DC18976BDC00344A6B = {
+			isa = PBXGroup;
+			children = (
+				FA8A03EE18976BDC00344A6B /* CurrencyConverter */,
+				FA8A040D18976BDC00344A6B /* CurrencyConverterTests */,
+				FA8A03E718976BDC00344A6B /* Frameworks */,
+				FA8A03E618976BDC00344A6B /* Products */,
+				39473AEC772146C79A3B7ABD /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		FA8A03E618976BDC00344A6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA8A03E518976BDC00344A6B /* CurrencyConverter.app */,
+				FA8A040618976BDC00344A6B /* CurrencyConverterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA8A03E718976BDC00344A6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA8A03E818976BDC00344A6B /* Foundation.framework */,
+				FA8A03EA18976BDC00344A6B /* CoreGraphics.framework */,
+				FA8A03EC18976BDC00344A6B /* UIKit.framework */,
+				FA8A040718976BDC00344A6B /* XCTest.framework */,
+				FB496902FACC4C7982D2AEA9 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA8A03EE18976BDC00344A6B /* CurrencyConverter */ = {
+			isa = PBXGroup;
+			children = (
+				FA8A041E18977DF400344A6B /* YahooCurrencyClient.h */,
+				FA8A041F18977DF400344A6B /* YahooCurrencyClient.m */,
+				FA8A03F718976BDC00344A6B /* AppDelegate.h */,
+				FA8A03F818976BDC00344A6B /* AppDelegate.m */,
+				FA8A03FA18976BDC00344A6B /* Main.storyboard */,
+				FA8A03FD18976BDC00344A6B /* ViewController.h */,
+				FA8A03FE18976BDC00344A6B /* ViewController.m */,
+				FA8A040018976BDC00344A6B /* Images.xcassets */,
+				FA8A03EF18976BDC00344A6B /* Supporting Files */,
+			);
+			path = CurrencyConverter;
+			sourceTree = "<group>";
+		};
+		FA8A03EF18976BDC00344A6B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA8A03F018976BDC00344A6B /* CurrencyConverter-Info.plist */,
+				FA8A03F118976BDC00344A6B /* InfoPlist.strings */,
+				FA8A03F418976BDC00344A6B /* main.m */,
+				FA8A03F618976BDC00344A6B /* CurrencyConverter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA8A040D18976BDC00344A6B /* CurrencyConverterTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA8A041318976BDC00344A6B /* CurrencyConverterTests.m */,
+				FA8A040E18976BDC00344A6B /* Supporting Files */,
+			);
+			path = CurrencyConverterTests;
+			sourceTree = "<group>";
+		};
+		FA8A040E18976BDC00344A6B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA8A040F18976BDC00344A6B /* CurrencyConverterTests-Info.plist */,
+				FA8A041018976BDC00344A6B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA8A03E418976BDC00344A6B /* CurrencyConverter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA8A041718976BDC00344A6B /* Build configuration list for PBXNativeTarget "CurrencyConverter" */;
+			buildPhases = (
+				9491EEB064B543E6ADFDC6AB /* Check Pods Manifest.lock */,
+				FA8A03E118976BDC00344A6B /* Sources */,
+				FA8A03E218976BDC00344A6B /* Frameworks */,
+				FA8A03E318976BDC00344A6B /* Resources */,
+				DFA850C6736547AEB962A014 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CurrencyConverter;
+			productName = CurrencyConverter;
+			productReference = FA8A03E518976BDC00344A6B /* CurrencyConverter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA8A040518976BDC00344A6B /* CurrencyConverterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA8A041A18976BDC00344A6B /* Build configuration list for PBXNativeTarget "CurrencyConverterTests" */;
+			buildPhases = (
+				FA8A040218976BDC00344A6B /* Sources */,
+				FA8A040318976BDC00344A6B /* Frameworks */,
+				FA8A040418976BDC00344A6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA8A040C18976BDC00344A6B /* PBXTargetDependency */,
+			);
+			name = CurrencyConverterTests;
+			productName = CurrencyConverterTests;
+			productReference = FA8A040618976BDC00344A6B /* CurrencyConverterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA8A03DD18976BDC00344A6B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Anish Basu";
+				TargetAttributes = {
+					FA8A040518976BDC00344A6B = {
+						TestTargetID = FA8A03E418976BDC00344A6B;
+					};
+				};
+			};
+			buildConfigurationList = FA8A03E018976BDC00344A6B /* Build configuration list for PBXProject "CurrencyConverter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA8A03DC18976BDC00344A6B;
+			productRefGroup = FA8A03E618976BDC00344A6B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA8A03E418976BDC00344A6B /* CurrencyConverter */,
+				FA8A040518976BDC00344A6B /* CurrencyConverterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA8A03E318976BDC00344A6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8A040118976BDC00344A6B /* Images.xcassets in Resources */,
+				FA8A03F318976BDC00344A6B /* InfoPlist.strings in Resources */,
+				FA8A03FC18976BDC00344A6B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8A040418976BDC00344A6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8A041218976BDC00344A6B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9491EEB064B543E6ADFDC6AB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DFA850C6736547AEB962A014 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA8A03E118976BDC00344A6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8A03FF18976BDC00344A6B /* ViewController.m in Sources */,
+				FA8A03F918976BDC00344A6B /* AppDelegate.m in Sources */,
+				FA8A042018977DF400344A6B /* YahooCurrencyClient.m in Sources */,
+				FA8A03F518976BDC00344A6B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA8A040218976BDC00344A6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8A041418976BDC00344A6B /* CurrencyConverterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA8A040C18976BDC00344A6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA8A03E418976BDC00344A6B /* CurrencyConverter */;
+			targetProxy = FA8A040B18976BDC00344A6B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA8A03F118976BDC00344A6B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA8A03F218976BDC00344A6B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FA8A03FA18976BDC00344A6B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA8A03FB18976BDC00344A6B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA8A041018976BDC00344A6B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA8A041118976BDC00344A6B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA8A041518976BDC00344A6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FA8A041618976BDC00344A6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA8A041818976BDC00344A6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39473AEC772146C79A3B7ABD /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
+				INFOPLIST_FILE = "CurrencyConverter/CurrencyConverter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FA8A041918976BDC00344A6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39473AEC772146C79A3B7ABD /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
+				INFOPLIST_FILE = "CurrencyConverter/CurrencyConverter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FA8A041B18976BDC00344A6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CurrencyConverter.app/CurrencyConverter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CurrencyConverterTests/CurrencyConverterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		FA8A041C18976BDC00344A6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CurrencyConverter.app/CurrencyConverter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
+				INFOPLIST_FILE = "CurrencyConverterTests/CurrencyConverterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA8A03E018976BDC00344A6B /* Build configuration list for PBXProject "CurrencyConverter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8A041518976BDC00344A6B /* Debug */,
+				FA8A041618976BDC00344A6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA8A041718976BDC00344A6B /* Build configuration list for PBXNativeTarget "CurrencyConverter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8A041818976BDC00344A6B /* Debug */,
+				FA8A041918976BDC00344A6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA8A041A18976BDC00344A6B /* Build configuration list for PBXNativeTarget "CurrencyConverterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA8A041B18976BDC00344A6B /* Debug */,
+				FA8A041C18976BDC00344A6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA8A03DD18976BDC00344A6B /* Project object */;
+}
