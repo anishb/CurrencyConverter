@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>USD</key>
+	<dict>
+		<key>name</key>
+		<string>United States Dollars</string>
+		<key>symbol</key>
+		<string>$</string>
+		<key>flag</key>
+		<string>United-States-of-America</string>
+	</dict>
+</dict>
+</plist>
