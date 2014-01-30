@@ -220,7 +220,6 @@
 		FA8A040A18976BDC00344A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EC18976BDC00344A6B /* UIKit.framework */; };
 		FA8A041218976BDC00344A6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA8A041018976BDC00344A6B /* InfoPlist.strings */; };
 		FA8A041418976BDC00344A6B /* CurrencyConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A041318976BDC00344A6B /* CurrencyConverterTests.m */; };
-		FA8A042018977DF400344A6B /* YahooCurrencyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A041F18977DF400344A6B /* YahooCurrencyClient.m */; };
 		FA8A0422189832B300344A6B /* Currencies.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8A0421189832B300344A6B /* Currencies.plist */; };
 /* End PBXBuildFile section */
 
@@ -456,8 +455,6 @@
 		FA8A040F18976BDC00344A6B /* CurrencyConverterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CurrencyConverterTests-Info.plist"; sourceTree = "<group>"; };
 		FA8A041118976BDC00344A6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA8A041318976BDC00344A6B /* CurrencyConverterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyConverterTests.m; sourceTree = "<group>"; };
-		FA8A041E18977DF400344A6B /* YahooCurrencyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahooCurrencyClient.h; sourceTree = "<group>"; };
-		FA8A041F18977DF400344A6B /* YahooCurrencyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahooCurrencyClient.m; sourceTree = "<group>"; };
 		FA8A0421189832B300344A6B /* Currencies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Currencies.plist; sourceTree = "<group>"; };
 		FB496902FACC4C7982D2AEA9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -733,8 +730,6 @@
 			isa = PBXGroup;
 			children = (
 				FA3060A718983A6F00E49D1B /* Images */,
-				FA8A041E18977DF400344A6B /* YahooCurrencyClient.h */,
-				FA8A041F18977DF400344A6B /* YahooCurrencyClient.m */,
 				FA8A03F718976BDC00344A6B /* AppDelegate.h */,
 				FA8A03F818976BDC00344A6B /* AppDelegate.m */,
 				FA8A03FA18976BDC00344A6B /* Main.storyboard */,
@@ -1114,7 +1109,6 @@
 				FA8A03FF18976BDC00344A6B /* ViewController.m in Sources */,
 				FA30623118983B7A00E49D1B /* CurrencyManager.m in Sources */,
 				FA8A03F918976BDC00344A6B /* AppDelegate.m in Sources */,
-				FA8A042018977DF400344A6B /* YahooCurrencyClient.m in Sources */,
 				FA8A03F518976BDC00344A6B /* main.m in Sources */,
 				FA4A0E0418986F5000BC9EEA /* CurrencyTableViewCell.m in Sources */,
 			);

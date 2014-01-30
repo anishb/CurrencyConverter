@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "YahooCurrencyClient.h"
 #import "CurrencyManager.h"
 #import "CurrencyTableViewCell.h"
 
@@ -53,6 +52,7 @@
 - (void)updateExchangeRates
 {
 	__weak ViewController *weakSelf = self;
+	/*
 	[[YahooCurrencyClient client] exchangeRatesFrom:self.sourceCurrency
 												 to:[[CurrencyManager default] allCurrencySymbols]
 													 withResponse:^(NSDictionary *result, NSError *error) {
@@ -68,6 +68,7 @@
 			[weakSelf.tableView reloadData];
 		}
 	}];
+	 */
 }
 
 - (void)didReceiveMemoryWarning
