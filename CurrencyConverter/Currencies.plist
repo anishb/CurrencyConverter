@@ -2,6 +2,69 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>RUB</key>
+	<dict>
+		<key>name</key>
+		<string>Russian Ruble</string>
+		<key>symbol</key>
+		<string>руб</string>
+		<key>flag</key>
+		<string>Russia</string>
+	</dict>
+	<key>JPY</key>
+	<dict>
+		<key>name</key>
+		<string>Japanese Yen</string>
+		<key>symbol</key>
+		<string>¥</string>
+		<key>flag</key>
+		<string>Japan</string>
+	</dict>
+	<key>CNY</key>
+	<dict>
+		<key>name</key>
+		<string>Chinese Yuan Renminbi</string>
+		<key>symbol</key>
+		<string>¥</string>
+		<key>flag</key>
+		<string>China</string>
+	</dict>
+	<key>AED</key>
+	<dict>
+		<key>name</key>
+		<string>Emirati Dirham</string>
+		<key>symbol</key>
+		<string>د.إ</string>
+		<key>flag</key>
+		<string>United-Arab-Emirates</string>
+	</dict>
+	<key>CHF</key>
+	<dict>
+		<key>name</key>
+		<string>Swiss Franc</string>
+		<key>symbol</key>
+		<string>CHF</string>
+		<key>flag</key>
+		<string>Switzerland</string>
+	</dict>
+	<key>INR</key>
+	<dict>
+		<key>name</key>
+		<string>Indian Rupee</string>
+		<key>symbol</key>
+		<string>₹</string>
+		<key>flag</key>
+		<string>India</string>
+	</dict>
+	<key>CAD</key>
+	<dict>
+		<key>name</key>
+		<string>Canadian Dollar</string>
+		<key>symbol</key>
+		<string>$</string>
+		<key>flag</key>
+		<string>Canada</string>
+	</dict>
 	<key>AUD</key>
 	<dict>
 		<key>name</key>
