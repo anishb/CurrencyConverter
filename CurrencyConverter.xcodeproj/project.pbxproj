@@ -206,6 +206,10 @@
 		FA30623118983B7A00E49D1B /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30623018983B7A00E49D1B /* CurrencyManager.m */; };
 		FA4A0E01189866A000BC9EEA /* SourceCurrencyView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4A0E00189866A000BC9EEA /* SourceCurrencyView.m */; };
 		FA4A0E0418986F5000BC9EEA /* CurrencyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */; };
+		FA5D837F1899D9170061FFED /* ExchangeRate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D837E1899D9170061FFED /* ExchangeRate.m */; };
+		FA5D83821899D92B0061FFED /* ExchangeRateClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D83811899D92B0061FFED /* ExchangeRateClient.m */; };
+		FA5D83851899D96E0061FFED /* ExchangeAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D83831899D96E0061FFED /* ExchangeAPITest.m */; };
+		FA5D83861899D96E0061FFED /* ExchangeRateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D83841899D96E0061FFED /* ExchangeRateTest.m */; };
 		FA8A03E918976BDC00344A6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03E818976BDC00344A6B /* Foundation.framework */; };
 		FA8A03EB18976BDC00344A6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EA18976BDC00344A6B /* CoreGraphics.framework */; };
 		FA8A03ED18976BDC00344A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EC18976BDC00344A6B /* UIKit.framework */; };
@@ -219,7 +223,6 @@
 		FA8A040918976BDC00344A6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03E818976BDC00344A6B /* Foundation.framework */; };
 		FA8A040A18976BDC00344A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EC18976BDC00344A6B /* UIKit.framework */; };
 		FA8A041218976BDC00344A6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA8A041018976BDC00344A6B /* InfoPlist.strings */; };
-		FA8A041418976BDC00344A6B /* CurrencyConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8A041318976BDC00344A6B /* CurrencyConverterTests.m */; };
 		FA8A0422189832B300344A6B /* Currencies.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8A0421189832B300344A6B /* Currencies.plist */; };
 /* End PBXBuildFile section */
 
@@ -436,6 +439,12 @@
 		FA4A0E00189866A000BC9EEA /* SourceCurrencyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCurrencyView.m; sourceTree = "<group>"; };
 		FA4A0E0218986F5000BC9EEA /* CurrencyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyTableViewCell.h; sourceTree = "<group>"; };
 		FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyTableViewCell.m; sourceTree = "<group>"; };
+		FA5D837D1899D9170061FFED /* ExchangeRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeRate.h; sourceTree = "<group>"; };
+		FA5D837E1899D9170061FFED /* ExchangeRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeRate.m; sourceTree = "<group>"; };
+		FA5D83801899D92B0061FFED /* ExchangeRateClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeRateClient.h; sourceTree = "<group>"; };
+		FA5D83811899D92B0061FFED /* ExchangeRateClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeRateClient.m; sourceTree = "<group>"; };
+		FA5D83831899D96E0061FFED /* ExchangeAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeAPITest.m; sourceTree = "<group>"; };
+		FA5D83841899D96E0061FFED /* ExchangeRateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeRateTest.m; sourceTree = "<group>"; };
 		FA8A03E518976BDC00344A6B /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8A03E818976BDC00344A6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA8A03EA18976BDC00344A6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -454,7 +463,6 @@
 		FA8A040718976BDC00344A6B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FA8A040F18976BDC00344A6B /* CurrencyConverterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CurrencyConverterTests-Info.plist"; sourceTree = "<group>"; };
 		FA8A041118976BDC00344A6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FA8A041318976BDC00344A6B /* CurrencyConverterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyConverterTests.m; sourceTree = "<group>"; };
 		FA8A0421189832B300344A6B /* Currencies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Currencies.plist; sourceTree = "<group>"; };
 		FB496902FACC4C7982D2AEA9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -741,6 +749,10 @@
 				FA4A0E00189866A000BC9EEA /* SourceCurrencyView.m */,
 				FA4A0E0218986F5000BC9EEA /* CurrencyTableViewCell.h */,
 				FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */,
+				FA5D837D1899D9170061FFED /* ExchangeRate.h */,
+				FA5D837E1899D9170061FFED /* ExchangeRate.m */,
+				FA5D83801899D92B0061FFED /* ExchangeRateClient.h */,
+				FA5D83811899D92B0061FFED /* ExchangeRateClient.m */,
 				FA8A040018976BDC00344A6B /* Images.xcassets */,
 				FA8A03EF18976BDC00344A6B /* Supporting Files */,
 			);
@@ -762,7 +774,8 @@
 		FA8A040D18976BDC00344A6B /* CurrencyConverterTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA8A041318976BDC00344A6B /* CurrencyConverterTests.m */,
+				FA5D83831899D96E0061FFED /* ExchangeAPITest.m */,
+				FA5D83841899D96E0061FFED /* ExchangeRateTest.m */,
 				FA8A040E18976BDC00344A6B /* Supporting Files */,
 			);
 			path = CurrencyConverterTests;
@@ -1105,10 +1118,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5D837F1899D9170061FFED /* ExchangeRate.m in Sources */,
 				FA4A0E01189866A000BC9EEA /* SourceCurrencyView.m in Sources */,
 				FA8A03FF18976BDC00344A6B /* ViewController.m in Sources */,
 				FA30623118983B7A00E49D1B /* CurrencyManager.m in Sources */,
 				FA8A03F918976BDC00344A6B /* AppDelegate.m in Sources */,
+				FA5D83821899D92B0061FFED /* ExchangeRateClient.m in Sources */,
 				FA8A03F518976BDC00344A6B /* main.m in Sources */,
 				FA4A0E0418986F5000BC9EEA /* CurrencyTableViewCell.m in Sources */,
 			);
@@ -1118,7 +1133,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA8A041418976BDC00344A6B /* CurrencyConverterTests.m in Sources */,
+				FA5D83861899D96E0061FFED /* ExchangeRateTest.m in Sources */,
+				FA5D83851899D96E0061FFED /* ExchangeAPITest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1262,6 +1278,7 @@
 		};
 		FA8A041B18976BDC00344A6B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39473AEC772146C79A3B7ABD /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CurrencyConverter.app/CurrencyConverter";
@@ -1285,6 +1302,7 @@
 		};
 		FA8A041C18976BDC00344A6B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39473AEC772146C79A3B7ABD /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CurrencyConverter.app/CurrencyConverter";
