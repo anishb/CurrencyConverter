@@ -9,11 +9,17 @@
 #import "ViewController.h"
 #import "YahooCurrencyClient.h"
 #import "CurrencyManager.h"
+#import "CurrencyTableViewCell.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, weak) IBOutlet UILabel *sourceCurrencyCodeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *sourceCurrencyNameLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *sourceCurrencyFlagView;
+@property (nonatomic, weak) IBOutlet UITextField *sourceCurrencyAmountField;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSString *sourceCurrency;
 @property (nonatomic, strong) NSMutableArray *targetCurrencies;
+@property (nonatomic, strong) NSDictionary *targetAmounts;
 @end
 
 @implementation ViewController
@@ -22,19 +28,46 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	self.sourceCurrency = @"USD";
-	self.targetCurrencies = [[NSMutableArray alloc] init];
-	[self.targetCurrencies addObject:@"INR"];
-	[self.targetCurrencies addObject:@"JPY"];
+	// Setup source currency
+	//TODO: Check NSUserDefaults here
+	[self setupSourceCurrency:@"USD"];
 	
-	[[YahooCurrencyClient client] exchangeRatesFrom:@"USD"
-												 to:@[@"INR", @"JPY"]
-									   withResponse:^(NSDictionary *result, NSError *error) {
-										   if (error) {
-											   NSLog(@"%@", [error localizedDescription]);
-										   }
-									   }];
-	[CurrencyManager default];
+	// Setup target currencies
+	//TODO: Use NSUserDefaults to remember target currencies set
+	//		If key not present in NSUserDefaults set a random currency
+	self.targetCurrencies = [NSMutableArray arrayWithArray:[[CurrencyManager default] allCurrencySymbols]];
+}
+
+- (void)setupSourceCurrency:(NSString *)currencyCode
+{
+	self.sourceCurrency = @"USD";
+	CurrencyManager *manager = [CurrencyManager default];
+	self.sourceCurrencyCodeLabel.text = self.sourceCurrency;
+	self.sourceCurrencyNameLabel.text = [manager nameForCurrency:self.sourceCurrency];
+	self.sourceCurrencyFlagView.image = [manager imageForCountry:self.sourceCurrency];
+	self.sourceCurrencyAmountField.text = [NSString stringWithFormat:@"%@0",
+										   [manager symbolForCurrency:self.sourceCurrency]];
+	[self updateExchangeRates];
+}
+
+- (void)updateExchangeRates
+{
+	__weak ViewController *weakSelf = self;
+	[[YahooCurrencyClient client] exchangeRatesFrom:self.sourceCurrency
+												 to:[[CurrencyManager default] allCurrencySymbols]
+													 withResponse:^(NSDictionary *result, NSError *error) {
+		if (error) {
+			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Exchange rate retreival failed"
+																message:[error localizedDescription]
+															   delegate:nil
+													  cancelButtonTitle:@"OK"
+													  otherButtonTitles:nil];
+			[alertView show];
+		} else {
+			weakSelf.targetAmounts = result;
+			[weakSelf.tableView reloadData];
+		}
+	}];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,11 +85,6 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-	/*
-	if (section == 0) {
-		return 1;
-	}
-	 */
 	return [self.targetCurrencies count];
 }
 
@@ -64,27 +92,24 @@
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *cellIdentifier = @"CurrencyCell";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier
-															forIndexPath:indexPath];
+	CurrencyTableViewCell *cell = (CurrencyTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier
+																						   forIndexPath:indexPath];
 	if (cell == nil) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-									  reuseIdentifier:cellIdentifier];
+		cell = [[CurrencyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+											reuseIdentifier:cellIdentifier];
 	}
-	//if (indexPath.section == 0) {
-	//	cell.textLabel.text = @"USD";
-	//} else {
-		cell.textLabel.text = [self.targetCurrencies objectAtIndex:indexPath.row];
-	//}
+
+	CurrencyManager *manager = [CurrencyManager default];
+	NSString *countryCode = [self.targetCurrencies objectAtIndex:indexPath.row];
+	cell.currencyCode.text = countryCode;
+	cell.flagImageView.image = [manager imageForCountry:countryCode];
+	cell.currencyName.text = [manager nameForCurrency:countryCode];
+	NSString *amount;
+	
+	//cell.currencyAmount.text =
 
 	return cell;
 }
-
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-	return @"Target currencies";
-}
-
 
 
 

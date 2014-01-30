@@ -204,6 +204,8 @@
 		FA30622D18983A8200E49D1B /* Zambia.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30616A18983A8200E49D1B /* Zambia.png */; };
 		FA30622E18983A8200E49D1B /* Zimbabwe.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30616B18983A8200E49D1B /* Zimbabwe.png */; };
 		FA30623118983B7A00E49D1B /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30623018983B7A00E49D1B /* CurrencyManager.m */; };
+		FA4A0E01189866A000BC9EEA /* SourceCurrencyView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4A0E00189866A000BC9EEA /* SourceCurrencyView.m */; };
+		FA4A0E0418986F5000BC9EEA /* CurrencyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */; };
 		FA8A03E918976BDC00344A6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03E818976BDC00344A6B /* Foundation.framework */; };
 		FA8A03EB18976BDC00344A6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EA18976BDC00344A6B /* CoreGraphics.framework */; };
 		FA8A03ED18976BDC00344A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EC18976BDC00344A6B /* UIKit.framework */; };
@@ -431,6 +433,10 @@
 		FA30616B18983A8200E49D1B /* Zimbabwe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zimbabwe.png; sourceTree = "<group>"; };
 		FA30622F18983B7A00E49D1B /* CurrencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyManager.h; sourceTree = "<group>"; };
 		FA30623018983B7A00E49D1B /* CurrencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManager.m; sourceTree = "<group>"; };
+		FA4A0DFF189866A000BC9EEA /* SourceCurrencyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceCurrencyView.h; sourceTree = "<group>"; };
+		FA4A0E00189866A000BC9EEA /* SourceCurrencyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCurrencyView.m; sourceTree = "<group>"; };
+		FA4A0E0218986F5000BC9EEA /* CurrencyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyTableViewCell.h; sourceTree = "<group>"; };
+		FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyTableViewCell.m; sourceTree = "<group>"; };
 		FA8A03E518976BDC00344A6B /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8A03E818976BDC00344A6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA8A03EA18976BDC00344A6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -736,6 +742,10 @@
 				FA8A03FE18976BDC00344A6B /* ViewController.m */,
 				FA30622F18983B7A00E49D1B /* CurrencyManager.h */,
 				FA30623018983B7A00E49D1B /* CurrencyManager.m */,
+				FA4A0DFF189866A000BC9EEA /* SourceCurrencyView.h */,
+				FA4A0E00189866A000BC9EEA /* SourceCurrencyView.m */,
+				FA4A0E0218986F5000BC9EEA /* CurrencyTableViewCell.h */,
+				FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */,
 				FA8A040018976BDC00344A6B /* Images.xcassets */,
 				FA8A03EF18976BDC00344A6B /* Supporting Files */,
 			);
@@ -1100,11 +1110,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4A0E01189866A000BC9EEA /* SourceCurrencyView.m in Sources */,
 				FA8A03FF18976BDC00344A6B /* ViewController.m in Sources */,
 				FA30623118983B7A00E49D1B /* CurrencyManager.m in Sources */,
 				FA8A03F918976BDC00344A6B /* AppDelegate.m in Sources */,
 				FA8A042018977DF400344A6B /* YahooCurrencyClient.m in Sources */,
 				FA8A03F518976BDC00344A6B /* main.m in Sources */,
+				FA4A0E0418986F5000BC9EEA /* CurrencyTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
