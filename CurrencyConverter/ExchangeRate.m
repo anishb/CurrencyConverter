@@ -29,8 +29,6 @@
 	}
 	
 	// Otherwise get USD to base rate and then multipy by target to USD rate
-	NSLog(@"In terms of dollars = %f", 1.0 / [[self.rates objectForKey:baseCurrencyCode] doubleValue]);
-	NSLog(@"Target currency rate = %f", [[self.rates objectForKey:targetCurrencyCode] doubleValue]);
 	return (1.0 / [[self.rates objectForKey:baseCurrencyCode] doubleValue]) *
 		[[self.rates objectForKey:targetCurrencyCode] doubleValue];
 }

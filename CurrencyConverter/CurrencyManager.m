@@ -34,7 +34,7 @@
 	return self;
 }
 
-- (NSArray *)allCurrencySymbols
+- (NSArray *)allCurrencyCodes
 {
 	return [self.currencies allKeys];
 }

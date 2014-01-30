@@ -14,7 +14,7 @@
 + (instancetype)default;
 
 /** Returns array of all currency codes as NSStrings */
-- (NSArray *)allCurrencySymbols;
+- (NSArray *)allCurrencyCodes;
 
 - (UIImage *)imageForCountry:(NSString *)currencyCode;
 - (NSString *)nameForCurrency:(NSString *)currencyCode;

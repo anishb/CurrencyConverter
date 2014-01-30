@@ -10,11 +10,12 @@
 #import "CurrencyManager.h"
 #import "CurrencyTableViewCell.h"
 #import "ExchangeRateClient.h"
+#import "CurrencyPickerViewController.h"
 
 #define MAX_CHARACTERS 15
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,
-							UIGestureRecognizerDelegate>
+							UIGestureRecognizerDelegate, CurrencyPickerViewControllerDelegate>
 @property (nonatomic, weak) IBOutlet UILabel *sourceCurrencyCodeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *sourceCurrencyNameLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *sourceCurrencyFlagView;
@@ -33,6 +34,13 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	self.sourceCurrencyAmountField.keyboardType = UIKeyboardTypeDecimalPad;
 	
+	// Add tap gesture recognizer to source currency
+	UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+																				 action:@selector(sourceCurrencyTapped:)];
+	tapGesture.delegate = self;
+	[self.sourceCurrencyFlagView addGestureRecognizer:tapGesture];
+	[self.sourceCurrencyCodeLabel addGestureRecognizer:tapGesture];
+	
 	
 	// Setup source currency
 	//TODO: Check NSUserDefaults here
@@ -41,18 +49,20 @@
 	// Setup target currencies
 	//TODO: Use NSUserDefaults to remember target currencies set
 	//		If key not present in NSUserDefaults set a random currency
-	self.targetCurrencies = [NSMutableArray arrayWithArray:[[CurrencyManager default] allCurrencySymbols]];
+	self.targetCurrencies = [NSMutableArray arrayWithArray:[[CurrencyManager default] allCurrencyCodes]];
+	
+	[self updateExchangeRates];
 }
 
 - (void)setupSourceCurrency:(NSString *)currencyCode
 {
-	self.sourceCurrency = @"USD";
+	self.sourceCurrency = currencyCode;
 	CurrencyManager *manager = [CurrencyManager default];
 	self.sourceCurrencyCodeLabel.text = self.sourceCurrency;
 	self.sourceCurrencyNameLabel.text = [manager nameForCurrency:self.sourceCurrency];
 	self.sourceCurrencyFlagView.image = [manager imageForCountry:self.sourceCurrency];
 	self.sourceCurrencyAmountField.text = [NSString stringWithFormat:@"%@ 0", [manager symbolForCurrency:self.sourceCurrency]];
-	[self updateExchangeRates];
+	[self.tableView reloadData];
 }
 
 - (void)updateExchangeRates
@@ -67,9 +77,8 @@
 													  otherButtonTitles:nil];
 			[alertView show];
 		} else {
-			self.rates = rates;
-			[weakSelf.tableView reloadData];
-			
+			weakSelf.rates = rates;
+			[self.tableView reloadData];
 		}
 	}];
 }
@@ -121,6 +130,15 @@
 	}
 	
 	self.sourceCurrencyAmountField.text = filtered;
+}
+
+- (void)sourceCurrencyTapped:(UIGestureRecognizer *)gesture
+{
+	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+	CurrencyPickerViewController *pickerVC = (CurrencyPickerViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"CurrencyPickerView"];
+	pickerVC.delegate = self;
+	pickerVC.currencies = [[CurrencyManager default] allCurrencyCodes];
+	[self presentViewController:pickerVC animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -190,6 +208,13 @@
 	
 }
 
+#pragma mark - CurrencyPickerViewControllerDelegate
+
+- (void)selectedCurrency:(NSString *)selectedCurrencyCode
+{
+	[self setupSourceCurrency:selectedCurrencyCode];
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 @end
