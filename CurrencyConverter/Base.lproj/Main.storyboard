@@ -109,6 +109,7 @@
                         <outlet property="sourceCurrencyCodeLabel" destination="e1V-DG-k3H" id="JzX-EU-w9z"/>
                         <outlet property="sourceCurrencyFlagView" destination="GjJ-fl-r3O" id="Fsd-ky-Uee"/>
                         <outlet property="sourceCurrencyNameLabel" destination="cFd-iD-K0y" id="kqI-qe-LDa"/>
+                        <outlet property="sourceCurrencyView" destination="s2G-01-4I0" id="yQH-ta-CwL"/>
                         <outlet property="tableView" destination="Sb9-mi-Kqm" id="hv4-Xg-uG4"/>
                     </connections>
                 </viewController>

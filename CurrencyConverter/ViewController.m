@@ -16,6 +16,7 @@
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,
 							UIGestureRecognizerDelegate, CurrencyPickerViewControllerDelegate>
+@property (nonatomic, weak) IBOutlet UIView *sourceCurrencyView;
 @property (nonatomic, weak) IBOutlet UILabel *sourceCurrencyCodeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *sourceCurrencyNameLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *sourceCurrencyFlagView;
@@ -43,6 +44,10 @@
 	UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self
 																				  action:@selector(sourceCurrencyTapped:)];
 	[self.sourceCurrencyCodeLabel addGestureRecognizer:tapGesture2];
+	UITapGestureRecognizer *tapRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self
+																				 action:@selector(editSourceCurrency:)];
+	[self.sourceCurrencyView addGestureRecognizer:tapRecognizer3];
+	
 	
 	// Setup source currency - Default to USD. Later retrieve from NSUserDefaults
 	[self setupSourceCurrency:@"USD"];
@@ -158,6 +163,11 @@
 {
 	[self.view removeGestureRecognizer:gesture];
 	[self.view endEditing:NO];
+}
+
+- (void)editSourceCurrency:(UIGestureRecognizer *)gesture
+{
+	[self.sourceCurrencyAmountField becomeFirstResponder];
 }
 
 - (void)addTargetCurrency
