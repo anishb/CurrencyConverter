@@ -13,6 +13,8 @@
 #import "CurrencyPickerViewController.h"
 
 #define MAX_CHARACTERS 15
+#define DEFAULTS_KEY_SOURCE_CURRENCY @"sourceCurrency"
+#define DEFAULTS_KEY_TARGET_CURRENCIES @"targetCurrencies"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,
 							UIGestureRecognizerDelegate, CurrencyPickerViewControllerDelegate>
@@ -52,11 +54,18 @@
 	
 	
 	// Setup source currency - Default to USD. Later retrieve from NSUserDefaults
-	[self setupSourceCurrency:@"USD"];
+	NSString *sourceCurrency = [[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_KEY_SOURCE_CURRENCY];
+	if (sourceCurrency) {
+		[self setupSourceCurrency:sourceCurrency];
+	} else {
+		[self setupSourceCurrency:@"USD"];
+	}
 	
 	// Setup target currencies
-	//TODO: Use NSUserDefaults to remember target currencies set
-	self.targetCurrencies = [[NSMutableArray alloc] init];
+	self.targetCurrencies = [[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_KEY_TARGET_CURRENCIES];
+	if (!self.targetCurrencies) {
+		self.targetCurrencies = [[NSMutableArray alloc] init];
+	}
 	
 	// Add + sign to nav bar
 	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTargetCurrency)];
@@ -74,8 +83,20 @@
 	[self updateExchangeRates];
 }
 
+- (void)persistTargetCurrencies
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setObject:self.targetCurrencies forKey:DEFAULTS_KEY_TARGET_CURRENCIES];
+	[defaults synchronize];
+}
+
 - (void)setupSourceCurrency:(NSString *)currencyCode
 {
+	// Save to preferences
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setObject:currencyCode forKey:DEFAULTS_KEY_SOURCE_CURRENCY];
+	[defaults synchronize];
+	
 	self.sourceCurrency = currencyCode;
 	CurrencyManager *manager = [CurrencyManager default];
 	self.sourceCurrencyCodeLabel.text = self.sourceCurrency;
@@ -173,12 +194,6 @@
 	[self presentViewController:pickerVC animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewTapped:(UIGestureRecognizer *)gesture
 {
 	[self.view removeGestureRecognizer:gesture];
@@ -251,6 +266,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Remove target currency
 		[self.targetCurrencies removeObjectAtIndex:indexPath.row];
+		[self persistTargetCurrencies];
 		[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
@@ -282,6 +298,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 		[self setupSourceCurrency:selectedCurrencyCode];
 	} else {
 		[self.targetCurrencies addObject:selectedCurrencyCode];
+		[self persistTargetCurrencies];
 		[self.tableView reloadData];
 	}
 	[self dismissViewControllerAnimated:YES completion:nil];
