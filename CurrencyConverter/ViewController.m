@@ -37,19 +37,21 @@
 	// Add tap gesture recognizer to source currency
 	UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
 																				 action:@selector(sourceCurrencyTapped:)];
-	tapGesture.delegate = self;
 	[self.sourceCurrencyFlagView addGestureRecognizer:tapGesture];
-	[self.sourceCurrencyCodeLabel addGestureRecognizer:tapGesture];
+	UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self
+																				  action:@selector(sourceCurrencyTapped:)];
+	[self.sourceCurrencyCodeLabel addGestureRecognizer:tapGesture2];
 	
-	
-	// Setup source currency
-	//TODO: Check NSUserDefaults here
+	// Setup source currency - Default to USD. Later retrieve from NSUserDefaults
 	[self setupSourceCurrency:@"USD"];
 	
 	// Setup target currencies
 	//TODO: Use NSUserDefaults to remember target currencies set
-	//		If key not present in NSUserDefaults set a random currency
-	self.targetCurrencies = [NSMutableArray arrayWithArray:[[CurrencyManager default] allCurrencyCodes]];
+	self.targetCurrencies = [[NSMutableArray alloc] init];
+	
+	// Add + sign to nav bar
+	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTargetCurrency)];
+	self.navigationItem.rightBarButtonItem = barButtonItem;
 	
 	[self updateExchangeRates];
 }
@@ -130,6 +132,8 @@
 	}
 	
 	self.sourceCurrencyAmountField.text = filtered;
+	
+	[self.tableView reloadData];
 }
 
 - (void)sourceCurrencyTapped:(UIGestureRecognizer *)gesture
@@ -138,6 +142,7 @@
 	CurrencyPickerViewController *pickerVC = (CurrencyPickerViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"CurrencyPickerView"];
 	pickerVC.delegate = self;
 	pickerVC.currencies = [[CurrencyManager default] allCurrencyCodes];
+	pickerVC.type = CurrencyTypeSource;
 	[self presentViewController:pickerVC animated:YES completion:nil];
 }
 
@@ -151,6 +156,20 @@
 {
 	[self.view removeGestureRecognizer:gesture];
 	[self.view endEditing:NO];
+}
+
+- (void)addTargetCurrency
+{
+	NSMutableArray *currencies = [[NSMutableArray alloc] init];
+	[currencies addObjectsFromArray:[[CurrencyManager default] allCurrencyCodes]];
+	[currencies removeObjectsInArray:self.targetCurrencies];
+	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+	CurrencyPickerViewController *pickerVC = (CurrencyPickerViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"CurrencyPickerView"];
+	pickerVC.delegate = self;
+	pickerVC.currencies = currencies;
+	pickerVC.type = CurrencyTypeTarget;
+
+	[self presentViewController:pickerVC animated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource
@@ -210,9 +229,14 @@
 
 #pragma mark - CurrencyPickerViewControllerDelegate
 
-- (void)selectedCurrency:(NSString *)selectedCurrencyCode
+- (void)selectedCurrency:(NSString *)selectedCurrencyCode forType:(CurrencyType)type
 {
-	[self setupSourceCurrency:selectedCurrencyCode];
+	if (type == CurrencyTypeSource) {
+		[self setupSourceCurrency:selectedCurrencyCode];
+	} else {
+		[self.targetCurrencies addObject:selectedCurrencyCode];
+		[self.tableView reloadData];
+	}
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 

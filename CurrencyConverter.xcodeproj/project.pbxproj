@@ -204,7 +204,6 @@
 		FA30622D18983A8200E49D1B /* Zambia.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30616A18983A8200E49D1B /* Zambia.png */; };
 		FA30622E18983A8200E49D1B /* Zimbabwe.png in Resources */ = {isa = PBXBuildFile; fileRef = FA30616B18983A8200E49D1B /* Zimbabwe.png */; };
 		FA30623118983B7A00E49D1B /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30623018983B7A00E49D1B /* CurrencyManager.m */; };
-		FA4A0E01189866A000BC9EEA /* SourceCurrencyView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4A0E00189866A000BC9EEA /* SourceCurrencyView.m */; };
 		FA4A0E0418986F5000BC9EEA /* CurrencyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */; };
 		FA5D837F1899D9170061FFED /* ExchangeRate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D837E1899D9170061FFED /* ExchangeRate.m */; };
 		FA5D83821899D92B0061FFED /* ExchangeRateClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D83811899D92B0061FFED /* ExchangeRateClient.m */; };
@@ -437,8 +436,6 @@
 		FA30616B18983A8200E49D1B /* Zimbabwe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zimbabwe.png; sourceTree = "<group>"; };
 		FA30622F18983B7A00E49D1B /* CurrencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyManager.h; sourceTree = "<group>"; };
 		FA30623018983B7A00E49D1B /* CurrencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyManager.m; sourceTree = "<group>"; };
-		FA4A0DFF189866A000BC9EEA /* SourceCurrencyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceCurrencyView.h; sourceTree = "<group>"; };
-		FA4A0E00189866A000BC9EEA /* SourceCurrencyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCurrencyView.m; sourceTree = "<group>"; };
 		FA4A0E0218986F5000BC9EEA /* CurrencyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyTableViewCell.h; sourceTree = "<group>"; };
 		FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyTableViewCell.m; sourceTree = "<group>"; };
 		FA5D837D1899D9170061FFED /* ExchangeRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeRate.h; sourceTree = "<group>"; };
@@ -751,8 +748,6 @@
 				FA8A03FE18976BDC00344A6B /* ViewController.m */,
 				FA30622F18983B7A00E49D1B /* CurrencyManager.h */,
 				FA30623018983B7A00E49D1B /* CurrencyManager.m */,
-				FA4A0DFF189866A000BC9EEA /* SourceCurrencyView.h */,
-				FA4A0E00189866A000BC9EEA /* SourceCurrencyView.m */,
 				FA4A0E0218986F5000BC9EEA /* CurrencyTableViewCell.h */,
 				FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */,
 				FA5D837D1899D9170061FFED /* ExchangeRate.h */,
@@ -1129,7 +1124,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5D837F1899D9170061FFED /* ExchangeRate.m in Sources */,
-				FA4A0E01189866A000BC9EEA /* SourceCurrencyView.m in Sources */,
 				FA8A03FF18976BDC00344A6B /* ViewController.m in Sources */,
 				FA30623118983B7A00E49D1B /* CurrencyManager.m in Sources */,
 				FA5D838C189B005C0061FFED /* CurrencyTypeCell.m in Sources */,
