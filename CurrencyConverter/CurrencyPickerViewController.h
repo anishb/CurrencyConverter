@@ -16,9 +16,10 @@ typedef enum {
 @protocol CurrencyPickerViewControllerDelegate <NSObject>
 - (void)selectedCurrency:(NSString *)selectedCurrencyCode
 				 forType:(CurrencyType)type;
+- (void)cancelled;
 @end
 
-@interface CurrencyPickerViewController : UITableViewController
+@interface CurrencyPickerViewController : UIViewController
 
 /** Array of NSString currency codes */
 @property (nonatomic, strong) NSArray *currencies;

@@ -10,37 +10,31 @@
 #import "CurrencyTypeCell.h"
 #import "CurrencyManager.h"
 
-@interface CurrencyPickerViewController ()
-
+@interface CurrencyPickerViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 @end
 
 @implementation CurrencyPickerViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	// To remove hairline
+	self.toolbar.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)cancelPressed:(id)sender
+{
+	if ([self.delegate respondsToSelector:@selector(cancelled)]) {
+		[self.delegate cancelled];
+	}
 }
 
 #pragma mark - Table view data source

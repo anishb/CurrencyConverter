@@ -31,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
+	
 	// Do any additional setup after loading the view, typically from a nib.
 	self.sourceCurrencyAmountField.keyboardType = UIKeyboardTypeDecimalPad;
 	
@@ -237,6 +239,11 @@
 		[self.targetCurrencies addObject:selectedCurrencyCode];
 		[self.tableView reloadData];
 	}
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)cancelled
+{
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
