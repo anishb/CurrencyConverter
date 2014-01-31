@@ -29,14 +29,14 @@
 		<key>flag</key>
 		<string>China</string>
 	</dict>
-	<key>AED</key>
+	<key>SEK</key>
 	<dict>
 		<key>name</key>
-		<string>Emirati Dirham</string>
+		<string>Swedish Krona</string>
 		<key>symbol</key>
-		<string>د.إ</string>
+		<string>kr</string>
 		<key>flag</key>
-		<string>United-Arab-Emirates</string>
+		<string>Sweden</string>
 	</dict>
 	<key>CHF</key>
 	<dict>

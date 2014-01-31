@@ -154,18 +154,20 @@
 
 - (IBAction)sourceChanged:(id)sender
 {
+	NSString *symbol = [[CurrencyManager default] symbolForCurrency:self.sourceCurrency];
+	NSUInteger offset = [symbol length] + 2;
 	NSMutableString *filtered = [[NSMutableString alloc] init];
 	[filtered appendString:self.sourceCurrencyAmountField.text];
 	
-	// If length is less than 3, set to 0
-	if ([filtered length] == 2) {
+	// If length is less than offset, i.e., first digit was deleted, add back a 0
+	if ([filtered length] == offset - 1) {
 		[filtered appendString:@"0"];
 	}
 	
-	// Remove 0 if it is the fourth character and there is no decimal
-	if ([filtered length] == 4 && [filtered characterAtIndex:2] == '0' &&
+	// Remove 0 if it is the first character after offset and there is no decimal
+	if ([filtered length] == (offset + 1) && [filtered characterAtIndex:offset - 1] == '0' &&
 		[filtered rangeOfString:@"."].location == NSNotFound) {
-		[filtered deleteCharactersInRange:NSMakeRange(2, 1)];
+		[filtered deleteCharactersInRange:NSMakeRange(offset - 1, 1)];
 	}
 	
 	// If last character is a decimal and decimal already exists, remove it
