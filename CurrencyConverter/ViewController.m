@@ -22,6 +22,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *sourceCurrencyFlagView;
 @property (nonatomic, weak) IBOutlet UITextField *sourceCurrencyAmountField;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic) BOOL updating;
 @property (nonatomic, strong) NSString *sourceCurrency;
 @property (nonatomic, strong) NSMutableArray *targetCurrencies;
 @property (nonatomic, strong) ExchangeRate *rates;
@@ -60,6 +62,15 @@
 	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTargetCurrency)];
 	self.navigationItem.rightBarButtonItem = barButtonItem;
 	
+	// Add pull to refresh
+	self.refreshControl = [[UIRefreshControl alloc] init];
+	self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
+	[self.refreshControl addTarget:self
+							action:@selector(updateExchangeRates)
+				  forControlEvents:UIControlEventValueChanged];
+	[self.tableView addSubview:self.refreshControl];
+	
+	// Update currency exchange rates
 	[self updateExchangeRates];
 }
 
@@ -77,19 +88,28 @@
 - (void)updateExchangeRates
 {
 	__weak ViewController *weakSelf = self;
-	[[ExchangeRateClient default] fetchExchangeRatesWith:^(ExchangeRate *rates, NSError *error) {
-		if (error) {
-			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Exchange rate retreival failed"
-																message:[error localizedDescription]
-															   delegate:nil
-													  cancelButtonTitle:@"OK"
-													  otherButtonTitles:nil];
-			[alertView show];
-		} else {
-			weakSelf.rates = rates;
-			[self.tableView reloadData];
-		}
-	}];
+	if (!self.updating) {
+		self.updating = YES;
+		[[ExchangeRateClient default] fetchExchangeRatesWith:^(ExchangeRate *rates, NSError *error) {
+			if (error) {
+				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Exchange rate retreival failed"
+																	message:[error localizedDescription]
+																   delegate:nil
+														  cancelButtonTitle:@"OK"
+														  otherButtonTitles:nil];
+				[alertView show];
+				[self.refreshControl endRefreshing];
+			} else {
+				weakSelf.rates = rates;
+				if (self.refreshControl.refreshing) {
+					[self.refreshControl endRefreshing];
+				} else {
+					[self.tableView reloadData];
+				}
+			}
+			self.updating = NO;
+		}];
+	}
 }
 
 - (double)sourceAmount
