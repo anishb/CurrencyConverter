@@ -41,8 +41,8 @@
 													  }];
 		NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
 		RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
-																								method:RKRequestMethodAny
-																						   pathPattern:nil
+																								method:RKRequestMethodGET
+																						   pathPattern:@"/api/latest.json"
 																							   keyPath:nil
 																						   statusCodes:statusCodes];
 		[_objectManager addResponseDescriptorsFromArray:@[responseDescriptor]];
