@@ -33,19 +33,6 @@
 	self = [super init];
 	if (self) {
 		_objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:BASE_URL]];
-		RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[ExchangeRate class]];
-		[mapping addAttributeMappingsFromDictionary:@{
-													  @"timestamp": @"timestamp",
-													  @"base": @"baseCurrencyCode",
-													  @"rates": @"rates"
-													  }];
-		NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-		RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
-																								method:RKRequestMethodGET
-																						   pathPattern:@"/api/latest.json"
-																							   keyPath:nil
-																						   statusCodes:statusCodes];
-		[_objectManager addResponseDescriptorsFromArray:@[responseDescriptor]];
 	}
 	return self;
 }
@@ -64,10 +51,30 @@
 
 - (RKObjectRequestOperation *)requestOperation
 {
-	return [self.objectManager appropriateObjectRequestOperationWithObject:nil
-																	method:RKRequestMethodGET
-																	  path:@"/api/latest.json"
-																parameters:@{@"app_id": APP_ID}];
+	// Create request
+	NSString *urlString = [NSString stringWithFormat:@"%@/api/latest.json?app_id=%@", BASE_URL, APP_ID];
+	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]
+											 cachePolicy:NSURLRequestUseProtocolCachePolicy
+										 timeoutInterval:60];
+	
+	// Create response descriptors
+	RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[ExchangeRate class]];
+	[mapping addAttributeMappingsFromDictionary:@{
+												  @"timestamp": @"timestamp",
+												  @"base": @"baseCurrencyCode",
+												  @"rates": @"rates"
+												  }];
+	NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+	RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
+																							method:RKRequestMethodGET
+																					   pathPattern:@"/api/latest.json"
+																						   keyPath:nil
+																					   statusCodes:statusCodes];
+	
+	// Create operation
+	RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request
+																		responseDescriptors:@[responseDescriptor]];
+	return operation;
 }
 
 @end
