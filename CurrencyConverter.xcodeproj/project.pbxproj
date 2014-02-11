@@ -225,6 +225,7 @@
 		FA8A040A18976BDC00344A6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8A03EC18976BDC00344A6B /* UIKit.framework */; };
 		FA8A041218976BDC00344A6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA8A041018976BDC00344A6B /* InfoPlist.strings */; };
 		FA8A0422189832B300344A6B /* Currencies.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA8A0421189832B300344A6B /* Currencies.plist */; };
+		FACD57D818A9DC50005D3743 /* YahooCurrencyClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FACD57D718A9DC50005D3743 /* YahooCurrencyClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -467,6 +468,8 @@
 		FA8A040F18976BDC00344A6B /* CurrencyConverterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CurrencyConverterTests-Info.plist"; sourceTree = "<group>"; };
 		FA8A041118976BDC00344A6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA8A0421189832B300344A6B /* Currencies.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Currencies.plist; sourceTree = "<group>"; };
+		FACD57D618A9DC50005D3743 /* YahooCurrencyClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahooCurrencyClient.h; sourceTree = "<group>"; };
+		FACD57D718A9DC50005D3743 /* YahooCurrencyClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahooCurrencyClient.m; sourceTree = "<group>"; };
 		FB496902FACC4C7982D2AEA9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -750,6 +753,8 @@
 				FA30623018983B7A00E49D1B /* CurrencyManager.m */,
 				FA4A0E0218986F5000BC9EEA /* CurrencyTableViewCell.h */,
 				FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */,
+				FACD57D618A9DC50005D3743 /* YahooCurrencyClient.h */,
+				FACD57D718A9DC50005D3743 /* YahooCurrencyClient.m */,
 				FA5D837D1899D9170061FFED /* ExchangeRate.h */,
 				FA5D837E1899D9170061FFED /* ExchangeRate.m */,
 				FA5D83801899D92B0061FFED /* ExchangeRateClient.h */,
@@ -1127,6 +1132,7 @@
 				FA8A03FF18976BDC00344A6B /* ViewController.m in Sources */,
 				FA30623118983B7A00E49D1B /* CurrencyManager.m in Sources */,
 				FA5D838C189B005C0061FFED /* CurrencyTypeCell.m in Sources */,
+				FACD57D818A9DC50005D3743 /* YahooCurrencyClient.m in Sources */,
 				FA5D8389189AFF050061FFED /* CurrencyPickerViewController.m in Sources */,
 				FA8A03F918976BDC00344A6B /* AppDelegate.m in Sources */,
 				FA5D83821899D92B0061FFED /* ExchangeRateClient.m in Sources */,
