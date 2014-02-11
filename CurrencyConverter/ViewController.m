@@ -8,27 +8,20 @@
 
 #import "ViewController.h"
 #import "CurrencyManager.h"
-#import "CurrencyTableViewCell.h"
-#import "YahooCurrencyClient.h"
 #import "CurrencyPickerViewController.h"
+#import "TargetCurrencyViewController.h"
 
 #define MAX_CHARACTERS 15
 #define DEFAULTS_KEY_SOURCE_CURRENCY @"sourceCurrency"
-#define DEFAULTS_KEY_TARGET_CURRENCIES @"targetCurrencies"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,
-							UIGestureRecognizerDelegate, CurrencyPickerViewControllerDelegate>
+@interface ViewController () <UITextFieldDelegate, UIGestureRecognizerDelegate,
+								CurrencyPickerViewControllerDelegate>
 @property (nonatomic, weak) IBOutlet UIView *sourceCurrencyView;
 @property (nonatomic, weak) IBOutlet UILabel *sourceCurrencyCodeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *sourceCurrencyNameLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *sourceCurrencyFlagView;
 @property (nonatomic, weak) IBOutlet UITextField *sourceCurrencyAmountField;
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (nonatomic) BOOL updating;
 @property (nonatomic, strong) NSString *sourceCurrency;
-@property (nonatomic, strong) NSMutableArray *targetCurrencies;
-@property (nonatomic, strong) ExchangeRate *rates;
 @end
 
 @implementation ViewController
@@ -36,7 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
 	
 	// Do any additional setup after loading the view, typically from a nib.
 	self.sourceCurrencyAmountField.keyboardType = UIKeyboardTypeDecimalPad;
@@ -61,33 +53,12 @@
 		[self setupSourceCurrency:@"USD"];
 	}
 	
-	// Setup target currencies
-	self.targetCurrencies = [[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_KEY_TARGET_CURRENCIES];
-	if (!self.targetCurrencies) {
-		self.targetCurrencies = [[NSMutableArray alloc] init];
-	}
-	
 	// Add + sign to nav bar
-	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTargetCurrency)];
+	TargetCurrencyViewController *tvc = (TargetCurrencyViewController *)[self.childViewControllers lastObject];
+	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+																				   target:tvc
+																				   action:@selector(addTargetCurrency)];
 	self.navigationItem.rightBarButtonItem = barButtonItem;
-	
-	// Add pull to refresh
-	self.refreshControl = [[UIRefreshControl alloc] init];
-	self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh"];
-	[self.refreshControl addTarget:self
-							action:@selector(updateExchangeRates)
-				  forControlEvents:UIControlEventValueChanged];
-	[self.tableView addSubview:self.refreshControl];
-	
-	// Update currency exchange rates
-	[self updateExchangeRates];
-}
-
-- (void)persistTargetCurrencies
-{
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject:self.targetCurrencies forKey:DEFAULTS_KEY_TARGET_CURRENCIES];
-	[defaults synchronize];
 }
 
 - (void)setupSourceCurrency:(NSString *)currencyCode
@@ -103,37 +74,13 @@
 	self.sourceCurrencyNameLabel.text = [manager nameForCurrency:self.sourceCurrency];
 	self.sourceCurrencyFlagView.image = [manager imageForCountry:self.sourceCurrency];
 	self.sourceCurrencyAmountField.text = [NSString stringWithFormat:@"%@ 0", [manager symbolForCurrency:self.sourceCurrency]];
-	[self.tableView reloadData];
+	
+	TargetCurrencyViewController *tvc = (TargetCurrencyViewController *)[self.childViewControllers lastObject];
+	tvc.sourceCurrency = currencyCode;
+	tvc.sourceAmount = 0;
 }
 
-- (void)updateExchangeRates
-{
-	__weak ViewController *weakSelf = self;
-	if (!weakSelf.updating) {
-		weakSelf.updating = YES;
-		[[YahooCurrencyClient client] exchangeRatesFrom:@"USD"
-													 to:[[CurrencyManager default] allCurrencyCodes]
-										   withResponse:^(ExchangeRate *rates, NSError *error) {
-											   if (error) {
-												   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Exchange rate retreival failed"
-																									   message:[error localizedDescription]
-																									  delegate:nil
-																							 cancelButtonTitle:@"OK"
-																							 otherButtonTitles:nil];
-												   [alertView show];
-												   [weakSelf.refreshControl endRefreshing];
-											   } else {
-												   weakSelf.rates = rates;
-												   if (weakSelf.refreshControl.refreshing) {
-													   [weakSelf.refreshControl endRefreshing];
-												   } else {
-													   [weakSelf.tableView reloadData];
-												   }
-											   }
-											   weakSelf.updating = NO;
-										   }];
-	}
-}
+
 
 - (double)sourceAmount
 {
@@ -185,7 +132,8 @@
 	
 	self.sourceCurrencyAmountField.text = filtered;
 	
-	[self.tableView reloadData];
+	TargetCurrencyViewController *tvc = (TargetCurrencyViewController *)[self.childViewControllers lastObject];
+	tvc.sourceAmount = [self sourceAmount];
 }
 
 - (void)sourceCurrencyTapped:(UIGestureRecognizer *)gesture
@@ -194,7 +142,6 @@
 	CurrencyPickerViewController *pickerVC = (CurrencyPickerViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"CurrencyPickerView"];
 	pickerVC.delegate = self;
 	pickerVC.currencies = [[CurrencyManager default] allCurrencyCodes];
-	pickerVC.type = CurrencyTypeSource;
 	[self presentViewController:pickerVC animated:YES completion:nil];
 }
 
@@ -208,76 +155,6 @@
 {
 	[self.sourceCurrencyAmountField becomeFirstResponder];
 }
-
-- (void)addTargetCurrency
-{
-	NSMutableArray *currencies = [[NSMutableArray alloc] init];
-	[currencies addObjectsFromArray:[[CurrencyManager default] allCurrencyCodes]];
-	[currencies removeObjectsInArray:self.targetCurrencies];
-	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-	CurrencyPickerViewController *pickerVC = (CurrencyPickerViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"CurrencyPickerView"];
-	pickerVC.delegate = self;
-	pickerVC.currencies = currencies;
-	pickerVC.type = CurrencyTypeTarget;
-
-	[self presentViewController:pickerVC animated:YES completion:nil];
-}
-
-#pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-	return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
-	return [self.targetCurrencies count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView
-		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	static NSString *cellIdentifier = @"CurrencyCell";
-	CurrencyTableViewCell *cell = (CurrencyTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier
-																						   forIndexPath:indexPath];
-	if (cell == nil) {
-		cell = [[CurrencyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-											reuseIdentifier:cellIdentifier];
-	}
-
-	CurrencyManager *manager = [CurrencyManager default];
-	NSString *countryCode = [self.targetCurrencies objectAtIndex:indexPath.row];
-	cell.currencyCode.text = countryCode;
-	cell.flagImageView.image = [manager imageForCountry:countryCode];
-	cell.currencyName.text = [manager nameForCurrency:countryCode];
-	double exchangeRate = [self.rates rateFrom:self.sourceCurrency to:countryCode];
-	double sourceAmount = [self sourceAmount];
-	double targetAmount = sourceAmount * exchangeRate;
-	cell.currencyAmount.text = [NSString stringWithFormat:@"%@ %.02f", [manager symbolForCurrency:countryCode], targetAmount];
-
-	return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	return YES;
-}
-
-- (void)tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Remove target currency
-		[self.targetCurrencies removeObjectAtIndex:indexPath.row];
-		[self persistTargetCurrencies];
-		[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
-}
-
-#pragma mark - UITableViewDelegate
-
-
 
 #pragma mark - UITextFieldDelegate
 
@@ -296,15 +173,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark - CurrencyPickerViewControllerDelegate
 
-- (void)selectedCurrency:(NSString *)selectedCurrencyCode forType:(CurrencyType)type
+- (void)selectedCurrency:(NSString *)selectedCurrencyCode
 {
-	if (type == CurrencyTypeSource) {
-		[self setupSourceCurrency:selectedCurrencyCode];
-	} else {
-		[self.targetCurrencies addObject:selectedCurrencyCode];
-		[self persistTargetCurrencies];
-		[self.tableView reloadData];
-	}
+	[self setupSourceCurrency:selectedCurrencyCode];
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 

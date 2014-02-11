@@ -8,14 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-	CurrencyTypeSource,
-	CurrencyTypeTarget
-} CurrencyType;
-
 @protocol CurrencyPickerViewControllerDelegate <NSObject>
-- (void)selectedCurrency:(NSString *)selectedCurrencyCode
-				 forType:(CurrencyType)type;
+- (void)selectedCurrency:(NSString *)selectedCurrencyCode;
 - (void)cancelled;
 @end
 
@@ -23,8 +17,7 @@ typedef enum {
 
 /** Array of NSString currency codes */
 @property (nonatomic, strong) NSArray *currencies;
-
-@property (nonatomic) CurrencyType type;
+/** Delegate */
 @property (nonatomic, weak) id<CurrencyPickerViewControllerDelegate> delegate;
 
 @end

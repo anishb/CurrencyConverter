@@ -70,8 +70,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSString *currencyCode = [self.currencies objectAtIndex:indexPath.row];
-	if ([self.delegate respondsToSelector:@selector(selectedCurrency:forType:)]) {
-		[self.delegate selectedCurrency:currencyCode forType:self.type];
+	if ([self.delegate respondsToSelector:@selector(selectedCurrency:)]) {
+		[self.delegate selectedCurrency:currencyCode];
 	}
 }
 
