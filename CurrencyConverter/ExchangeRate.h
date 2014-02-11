@@ -11,10 +11,8 @@
 @interface ExchangeRate : NSObject
 
 @property (nonatomic, copy) NSString *baseCurrencyCode;
-@property (nonatomic, copy) NSNumber *timestamp;
 @property (nonatomic, copy) NSDictionary *rates;
 
-- (NSDate *)lastUpdated;
 - (double)rateFrom:(NSString *)baseCurrencyCode
 				to:(NSString *)targetCurrencyCode;
 

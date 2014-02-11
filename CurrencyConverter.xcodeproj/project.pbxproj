@@ -206,8 +206,6 @@
 		FA30623118983B7A00E49D1B /* CurrencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA30623018983B7A00E49D1B /* CurrencyManager.m */; };
 		FA4A0E0418986F5000BC9EEA /* CurrencyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */; };
 		FA5D837F1899D9170061FFED /* ExchangeRate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D837E1899D9170061FFED /* ExchangeRate.m */; };
-		FA5D83821899D92B0061FFED /* ExchangeRateClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D83811899D92B0061FFED /* ExchangeRateClient.m */; };
-		FA5D83851899D96E0061FFED /* ExchangeAPITest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D83831899D96E0061FFED /* ExchangeAPITest.m */; };
 		FA5D83861899D96E0061FFED /* ExchangeRateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D83841899D96E0061FFED /* ExchangeRateTest.m */; };
 		FA5D8389189AFF050061FFED /* CurrencyPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D8388189AFF050061FFED /* CurrencyPickerViewController.m */; };
 		FA5D838C189B005C0061FFED /* CurrencyTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D838B189B005C0061FFED /* CurrencyTypeCell.m */; };
@@ -441,9 +439,6 @@
 		FA4A0E0318986F5000BC9EEA /* CurrencyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyTableViewCell.m; sourceTree = "<group>"; };
 		FA5D837D1899D9170061FFED /* ExchangeRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeRate.h; sourceTree = "<group>"; };
 		FA5D837E1899D9170061FFED /* ExchangeRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeRate.m; sourceTree = "<group>"; };
-		FA5D83801899D92B0061FFED /* ExchangeRateClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeRateClient.h; sourceTree = "<group>"; };
-		FA5D83811899D92B0061FFED /* ExchangeRateClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeRateClient.m; sourceTree = "<group>"; };
-		FA5D83831899D96E0061FFED /* ExchangeAPITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeAPITest.m; sourceTree = "<group>"; };
 		FA5D83841899D96E0061FFED /* ExchangeRateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeRateTest.m; sourceTree = "<group>"; };
 		FA5D8387189AFF050061FFED /* CurrencyPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyPickerViewController.h; sourceTree = "<group>"; };
 		FA5D8388189AFF050061FFED /* CurrencyPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyPickerViewController.m; sourceTree = "<group>"; };
@@ -757,8 +752,6 @@
 				FACD57D718A9DC50005D3743 /* YahooCurrencyClient.m */,
 				FA5D837D1899D9170061FFED /* ExchangeRate.h */,
 				FA5D837E1899D9170061FFED /* ExchangeRate.m */,
-				FA5D83801899D92B0061FFED /* ExchangeRateClient.h */,
-				FA5D83811899D92B0061FFED /* ExchangeRateClient.m */,
 				FA5D8387189AFF050061FFED /* CurrencyPickerViewController.h */,
 				FA5D8388189AFF050061FFED /* CurrencyPickerViewController.m */,
 				FA5D838A189B005C0061FFED /* CurrencyTypeCell.h */,
@@ -784,7 +777,6 @@
 		FA8A040D18976BDC00344A6B /* CurrencyConverterTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA5D83831899D96E0061FFED /* ExchangeAPITest.m */,
 				FA5D83841899D96E0061FFED /* ExchangeRateTest.m */,
 				FA8A040E18976BDC00344A6B /* Supporting Files */,
 			);
@@ -1135,7 +1127,6 @@
 				FACD57D818A9DC50005D3743 /* YahooCurrencyClient.m in Sources */,
 				FA5D8389189AFF050061FFED /* CurrencyPickerViewController.m in Sources */,
 				FA8A03F918976BDC00344A6B /* AppDelegate.m in Sources */,
-				FA5D83821899D92B0061FFED /* ExchangeRateClient.m in Sources */,
 				FA8A03F518976BDC00344A6B /* main.m in Sources */,
 				FA4A0E0418986F5000BC9EEA /* CurrencyTableViewCell.m in Sources */,
 			);
@@ -1146,7 +1137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5D83861899D96E0061FFED /* ExchangeRateTest.m in Sources */,
-				FA5D83851899D96E0061FFED /* ExchangeAPITest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

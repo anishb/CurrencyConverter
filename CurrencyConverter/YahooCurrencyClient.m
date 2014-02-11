@@ -28,7 +28,7 @@
 					   to:(NSArray *)targetCurrencies
 			 withResponse:(YahooCurrencyResponse)response
 {
-	int numTargets = [targetCurrencies count];
+	NSUInteger numTargets = [targetCurrencies count];
 	NSMutableString *query = [[NSMutableString alloc] init];
 	[query appendString:@"select * from yahoo.finance.xchange where pair in ("];
 	for (int i = 0; i < numTargets; i++) {
@@ -54,10 +54,13 @@
 			  NSString *currency = [[name componentsSeparatedByString:@" "] lastObject];
 			  NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 			  [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-			  NSNumber *exchage = [formatter numberFromString:[rate objectForKey:@"Rate"]];
-			  [exchanges setObject:exchage forKey:currency];
+			  NSNumber *exchange = [formatter numberFromString:[rate objectForKey:@"Rate"]];
+			  [exchanges setObject:exchange forKey:currency];
 		  }
-		  response(exchanges, nil);
+		  ExchangeRate *exchangeRate = [[ExchangeRate alloc] init];
+		  exchangeRate.baseCurrencyCode = sourceCurrency;
+		  exchangeRate.rates = exchanges;
+		  response(exchangeRate, nil);
 	  } failure:^(NSURLSessionDataTask *task, NSError *error) {
 		  response(nil, error);
 	  }];

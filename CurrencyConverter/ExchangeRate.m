@@ -10,11 +10,6 @@
 
 @implementation ExchangeRate
 
-- (NSDate *)lastUpdated
-{
-	return [NSDate dateWithTimeIntervalSince1970:[self.timestamp doubleValue]];
-}
-
 - (double)rateFrom:(NSString *)baseCurrencyCode
 				to:(NSString *)targetCurrencyCode
 {

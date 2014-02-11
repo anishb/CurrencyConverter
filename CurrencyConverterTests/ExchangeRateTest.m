@@ -21,7 +21,6 @@
     // Put setup code here; it will be run once, before the first test case.
 	self.rates = [[ExchangeRate alloc] init];
 	self.rates.baseCurrencyCode = @"USD";
-	self.rates.timestamp = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
 	self.rates.rates = @{
 						 @"AED": @"3.672754",
 						 @"AFN": @"56.551375",

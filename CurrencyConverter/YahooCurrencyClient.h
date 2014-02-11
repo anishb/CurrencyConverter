@@ -7,8 +7,9 @@
 //
 
 #import "AFHTTPSessionManager.h"
+#import "ExchangeRate.h"
 
-typedef void(^YahooCurrencyResponse)(NSDictionary *result, NSError *error);
+typedef void(^YahooCurrencyResponse)(ExchangeRate *rates, NSError *error);
 
 @interface YahooCurrencyClient : AFHTTPSessionManager
 

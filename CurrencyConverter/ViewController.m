@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "CurrencyManager.h"
 #import "CurrencyTableViewCell.h"
-#import "ExchangeRateClient.h"
+#import "YahooCurrencyClient.h"
 #import "CurrencyPickerViewController.h"
 
 #define MAX_CHARACTERS 15
@@ -111,25 +111,27 @@
 	__weak ViewController *weakSelf = self;
 	if (!self.updating) {
 		self.updating = YES;
-		[[ExchangeRateClient default] fetchExchangeRatesWith:^(ExchangeRate *rates, NSError *error) {
-			if (error) {
-				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Exchange rate retreival failed"
-																	message:[error localizedDescription]
-																   delegate:nil
-														  cancelButtonTitle:@"OK"
-														  otherButtonTitles:nil];
-				[alertView show];
-				[self.refreshControl endRefreshing];
-			} else {
-				weakSelf.rates = rates;
-				if (self.refreshControl.refreshing) {
-					[self.refreshControl endRefreshing];
-				} else {
-					[self.tableView reloadData];
-				}
-			}
-			self.updating = NO;
-		}];
+		[[YahooCurrencyClient client] exchangeRatesFrom:@"USD"
+													 to:[[CurrencyManager default] allCurrencyCodes]
+										   withResponse:^(ExchangeRate *rates, NSError *error) {
+											   if (error) {
+												   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Exchange rate retreival failed"
+																									   message:[error localizedDescription]
+																									  delegate:nil
+																							 cancelButtonTitle:@"OK"
+																							 otherButtonTitles:nil];
+												   [alertView show];
+												   [self.refreshControl endRefreshing];
+											   } else {
+												   weakSelf.rates = rates;
+												   if (self.refreshControl.refreshing) {
+													   [self.refreshControl endRefreshing];
+												   } else {
+													   [self.tableView reloadData];
+												   }
+											   }
+											   self.updating = NO;
+										   }];
 	}
 }
 
