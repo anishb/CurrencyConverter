@@ -109,8 +109,8 @@
 - (void)updateExchangeRates
 {
 	__weak ViewController *weakSelf = self;
-	if (!self.updating) {
-		self.updating = YES;
+	if (!weakSelf.updating) {
+		weakSelf.updating = YES;
 		[[YahooCurrencyClient client] exchangeRatesFrom:@"USD"
 													 to:[[CurrencyManager default] allCurrencyCodes]
 										   withResponse:^(ExchangeRate *rates, NSError *error) {
@@ -121,16 +121,16 @@
 																							 cancelButtonTitle:@"OK"
 																							 otherButtonTitles:nil];
 												   [alertView show];
-												   [self.refreshControl endRefreshing];
+												   [weakSelf.refreshControl endRefreshing];
 											   } else {
 												   weakSelf.rates = rates;
-												   if (self.refreshControl.refreshing) {
-													   [self.refreshControl endRefreshing];
+												   if (weakSelf.refreshControl.refreshing) {
+													   [weakSelf.refreshControl endRefreshing];
 												   } else {
-													   [self.tableView reloadData];
+													   [weakSelf.tableView reloadData];
 												   }
 											   }
-											   self.updating = NO;
+											   weakSelf.updating = NO;
 										   }];
 	}
 }
