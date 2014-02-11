@@ -83,6 +83,7 @@
 	NSMutableArray *currencies = [[NSMutableArray alloc] init];
 	[currencies addObjectsFromArray:[[CurrencyManager default] allCurrencyCodes]];
 	[currencies removeObjectsInArray:self.targetCurrencies];
+	[currencies removeObject:self.sourceCurrency];
 	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 	CurrencyPickerViewController *pickerVC = (CurrencyPickerViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"CurrencyPickerView"];
 	pickerVC.delegate = self;
