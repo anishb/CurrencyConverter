@@ -53,6 +53,10 @@
 	self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
 	self.navigationController.navigationBar.translucent = NO;
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+												 forBarPosition:UIBarPositionAny
+													 barMetrics:UIBarMetricsDefault];
+	[self.navigationController.navigationBar setShadowImage:[UIImage new]];
 	
 	
 	// Setup source currency - Default to USD. Later retrieve from NSUserDefaults
