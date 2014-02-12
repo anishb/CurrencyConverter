@@ -45,7 +45,7 @@
 																				 action:@selector(editSourceCurrency:)];
 	[self.sourceCurrencyView addGestureRecognizer:tapRecognizer3];
 	
-	// Set background color
+	// Set colors
 	self.sourceCurrencyNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:14.0];
 	self.view.backgroundColor = BACKGROUND_COLOR;
 	self.sourceCurrencyView.backgroundColor = BACKGROUND_COLOR;
@@ -57,6 +57,7 @@
 												 forBarPosition:UIBarPositionAny
 													 barMetrics:UIBarMetricsDefault];
 	[self.navigationController.navigationBar setShadowImage:[UIImage new]];
+	self.sourceCurrencyAmountField.textColor = [UIColor whiteColor];
 	
 	
 	// Setup source currency - Default to USD. Later retrieve from NSUserDefaults
