@@ -11,6 +11,7 @@
 #import "CurrencyManager.h"
 #import "YahooCurrencyClient.h"
 #import "CurrencyPickerViewController.h"
+#import "AppDelegate.h"
 
 #define DEFAULTS_KEY_TARGET_CURRENCIES @"targetCurrencies"
 
@@ -36,6 +37,9 @@
 {
     [super viewDidLoad];
 	
+	// Set table view background color
+	self.tableView.backgroundColor = BACKGROUND_COLOR;
+	
 	// Setup target currencies
 	self.targetCurrencies = [[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_KEY_TARGET_CURRENCIES];
 	if (!self.targetCurrencies) {
@@ -44,7 +48,8 @@
 	
 	// Add pull to refresh
 	self.refreshControl = [[UIRefreshControl alloc] init];
-	self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+	self.refreshControl.tintColor = [UIColor whiteColor];
+	//self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
 	[self.refreshControl addTarget:self
 							action:@selector(updateExchangeRates)
 				  forControlEvents:UIControlEventValueChanged];
@@ -143,6 +148,8 @@
 		cell = [[CurrencyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 											reuseIdentifier:cellIdentifier];
 	}
+	cell.backgroundColor = BACKGROUND_COLOR;
+	cell.currencyName.font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:14.0];
 	
 	CurrencyManager *manager = [CurrencyManager default];
 	NSString *countryCode = [self.targetCurrencies objectAtIndex:indexPath.row];

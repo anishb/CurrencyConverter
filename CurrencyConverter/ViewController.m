@@ -10,6 +10,7 @@
 #import "CurrencyManager.h"
 #import "CurrencyPickerViewController.h"
 #import "TargetCurrencyViewController.h"
+#import "AppDelegate.h"
 
 #define MAX_CHARACTERS 15
 #define DEFAULTS_KEY_SOURCE_CURRENCY @"sourceCurrency"
@@ -43,6 +44,15 @@
 	UITapGestureRecognizer *tapRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self
 																				 action:@selector(editSourceCurrency:)];
 	[self.sourceCurrencyView addGestureRecognizer:tapRecognizer3];
+	
+	// Set background color
+	self.sourceCurrencyNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:14.0];
+	self.view.backgroundColor = BACKGROUND_COLOR;
+	self.sourceCurrencyView.backgroundColor = BACKGROUND_COLOR;
+	self.navigationController.navigationBar.barTintColor = BACKGROUND_COLOR;
+	self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+	[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+	self.navigationController.navigationBar.translucent = NO;
 	
 	
 	// Setup source currency - Default to USD. Later retrieve from NSUserDefaults
