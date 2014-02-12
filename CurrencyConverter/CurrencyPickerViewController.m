@@ -9,6 +9,7 @@
 #import "CurrencyPickerViewController.h"
 #import "CurrencyTypeCell.h"
 #import "CurrencyManager.h"
+#import "AppDelegate.h"
 
 @interface CurrencyPickerViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -22,6 +23,11 @@
     [super viewDidLoad];
 	// To remove hairline
 	self.toolbar.clipsToBounds = YES;
+	
+	// Set colors
+	self.toolbar.backgroundColor = ORANGE_COLOR;
+	self.view.backgroundColor = ORANGE_COLOR;
+	self.tableView.backgroundColor = ORANGE_COLOR;
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +62,9 @@
     static NSString *CellIdentifier = @"CurrencyTypeCell";
     CurrencyTypeCell *cell = (CurrencyTypeCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier
 																				 forIndexPath:indexPath];
+	cell.backgroundColor = ORANGE_COLOR;
+	cell.currencyNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:14.0];
+	
     CurrencyManager *manager = [CurrencyManager default];
 	NSString *currencyCode = [self.currencies objectAtIndex:indexPath.row];
 	cell.flagImageView.image = [manager imageForCountry:currencyCode];

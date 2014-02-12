@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define BACKGROUND_COLOR [UIColor colorWithRed:0.0/255.0 green:152.0/255.0 blue:0.0/255.0 alpha:1.0];
-#define COLOR_OFF_WHITE [UIColor colorWithWhite:0.9f alpha:1.0f]
+#define ORANGE_COLOR [UIColor colorWithRed:237.0/255.0 green:132.0/255.0 blue:55.0/255.0 alpha:1.0];
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
