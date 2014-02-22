@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSMutableArray *targetCurrencies;
 @property (nonatomic, strong) ExchangeRate *rates;
 @property (nonatomic) BOOL updating;
+@property (nonatomic, strong) UIActivityIndicatorView *loadingSpinner;
 @end
 
 @implementation TargetCurrencyViewController
@@ -49,13 +50,35 @@
 	// Add pull to refresh
 	self.refreshControl = [[UIRefreshControl alloc] init];
 	self.refreshControl.tintColor = [UIColor whiteColor];
-	//self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
 	[self.refreshControl addTarget:self
 							action:@selector(updateExchangeRates)
 				  forControlEvents:UIControlEventValueChanged];
 
 	// Update currency exchange rates
 	[self updateExchangeRates];
+	
+	// Show spinner until rates are retrieved for the first time
+	[self showSpinner];
+}
+
+- (void)showSpinner
+{
+	self.loadingSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+
+	self.loadingSpinner.frame = CGRectMake(CGRectGetMidX(self.view.frame) - 50,
+										   50,
+										   100,
+										   100);
+	[self.view addSubview:self.loadingSpinner];
+	[self.loadingSpinner startAnimating];
+	[[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+}
+
+- (void)hideSpinner
+{
+	[self.loadingSpinner removeFromSuperview];
+	self.loadingSpinner = nil;
+	[[UIApplication sharedApplication] endIgnoringInteractionEvents];
 }
 
 - (void)didReceiveMemoryWarning
@@ -121,6 +144,9 @@
 												   [weakSelf.tableView reloadData];
 											   }
 											   weakSelf.updating = NO;
+											   if (self.loadingSpinner) {
+												   [weakSelf hideSpinner];
+											   }
 										   }];
 	}
 }
