@@ -447,7 +447,7 @@
 		FA5D8388189AFF050061FFED /* CurrencyPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyPickerViewController.m; sourceTree = "<group>"; };
 		FA5D838A189B005C0061FFED /* CurrencyTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyTypeCell.h; sourceTree = "<group>"; };
 		FA5D838B189B005C0061FFED /* CurrencyTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyTypeCell.m; sourceTree = "<group>"; };
-		FA8A03E518976BDC00344A6B /* Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Converter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8A03E518976BDC00344A6B /* GreenConvert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenConvert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8A03E818976BDC00344A6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA8A03EA18976BDC00344A6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FA8A03EC18976BDC00344A6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -722,7 +722,7 @@
 		FA8A03E618976BDC00344A6B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA8A03E518976BDC00344A6B /* Converter.app */,
+				FA8A03E518976BDC00344A6B /* GreenConvert.app */,
 				FA8A040618976BDC00344A6B /* CurrencyConverterTests.xctest */,
 			);
 			name = Products;
@@ -819,7 +819,7 @@
 			);
 			name = "Currency Converter";
 			productName = CurrencyConverter;
-			productReference = FA8A03E518976BDC00344A6B /* Converter.app */;
+			productReference = FA8A03E518976BDC00344A6B /* GreenConvert.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FA8A040518976BDC00344A6B /* CurrencyConverterTests */ = {
@@ -1273,7 +1273,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
 				INFOPLIST_FILE = "CurrencyConverter/CurrencyConverter-Info.plist";
-				PRODUCT_NAME = Converter;
+				PRODUCT_NAME = GreenConvert;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1288,7 +1288,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
 				INFOPLIST_FILE = "CurrencyConverter/CurrencyConverter-Info.plist";
-				PRODUCT_NAME = Converter;
+				PRODUCT_NAME = GreenConvert;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
