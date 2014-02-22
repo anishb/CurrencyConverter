@@ -849,6 +849,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Anish Basu";
 				TargetAttributes = {
+					FA8A03E418976BDC00344A6B = {
+						DevelopmentTeam = H4F2VD8RSQ;
+					};
 					FA8A040518976BDC00344A6B = {
 						TestTargetID = FA8A03E418976BDC00344A6B;
 					};
@@ -1266,6 +1269,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
 				INFOPLIST_FILE = "CurrencyConverter/CurrencyConverter-Info.plist";
@@ -1280,6 +1284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
 				INFOPLIST_FILE = "CurrencyConverter/CurrencyConverter-Info.plist";
