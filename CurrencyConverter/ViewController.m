@@ -140,6 +140,12 @@
 		[filtered deleteCharactersInRange:NSMakeRange([filtered length] - 1, 1)];
 	}
 	
+	// If decimal exists and there are three characters after decimal, remove last character
+	NSUInteger decimalPosition = [filtered rangeOfString:@"."].location;
+	if (decimalPosition != NSNotFound && [filtered length] - decimalPosition - 1 == 3) {
+		[filtered deleteCharactersInRange:NSMakeRange([filtered length] - 1, 1)];
+	}
+	
 	// If max number of characters hit, remove last character entered
 	if ([filtered length] > MAX_CHARACTERS) {
 		[filtered deleteCharactersInRange:NSMakeRange([filtered length] - 1, 1)];

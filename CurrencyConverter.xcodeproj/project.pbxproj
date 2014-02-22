@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		568336EF1FBB4FF99A983E36 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB496902FACC4C7982D2AEA9 /* libPods.a */; };
+		FA14DF8B18B8637900FCD54A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA14DF8A18B8637900FCD54A /* Media.xcassets */; };
 		FA30616C18983A8200E49D1B /* Afghanistan.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3060A918983A8100E49D1B /* Afghanistan.png */; };
 		FA30616D18983A8200E49D1B /* Albania.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3060AA18983A8100E49D1B /* Albania.png */; };
 		FA30616E18983A8200E49D1B /* Algeria.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3060AB18983A8100E49D1B /* Algeria.png */; };
@@ -239,6 +240,7 @@
 
 /* Begin PBXFileReference section */
 		39473AEC772146C79A3B7ABD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		FA14DF8A18B8637900FCD54A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../Media.xcassets; sourceTree = "<group>"; };
 		FA3060A918983A8100E49D1B /* Afghanistan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Afghanistan.png; sourceTree = "<group>"; };
 		FA3060AA18983A8100E49D1B /* Albania.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Albania.png; sourceTree = "<group>"; };
 		FA3060AB18983A8100E49D1B /* Algeria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Algeria.png; sourceTree = "<group>"; };
@@ -445,7 +447,7 @@
 		FA5D8388189AFF050061FFED /* CurrencyPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyPickerViewController.m; sourceTree = "<group>"; };
 		FA5D838A189B005C0061FFED /* CurrencyTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyTypeCell.h; sourceTree = "<group>"; };
 		FA5D838B189B005C0061FFED /* CurrencyTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyTypeCell.m; sourceTree = "<group>"; };
-		FA8A03E518976BDC00344A6B /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8A03E518976BDC00344A6B /* Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Converter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8A03E818976BDC00344A6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA8A03EA18976BDC00344A6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FA8A03EC18976BDC00344A6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -720,7 +722,7 @@
 		FA8A03E618976BDC00344A6B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA8A03E518976BDC00344A6B /* CurrencyConverter.app */,
+				FA8A03E518976BDC00344A6B /* Converter.app */,
 				FA8A040618976BDC00344A6B /* CurrencyConverterTests.xctest */,
 			);
 			name = Products;
@@ -741,6 +743,7 @@
 		FA8A03EE18976BDC00344A6B /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				FA14DF8A18B8637900FCD54A /* Media.xcassets */,
 				FA3060A718983A6F00E49D1B /* Images */,
 				FA8A03F718976BDC00344A6B /* AppDelegate.h */,
 				FA8A03F818976BDC00344A6B /* AppDelegate.m */,
@@ -800,9 +803,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA8A03E418976BDC00344A6B /* CurrencyConverter */ = {
+		FA8A03E418976BDC00344A6B /* Currency Converter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA8A041718976BDC00344A6B /* Build configuration list for PBXNativeTarget "CurrencyConverter" */;
+			buildConfigurationList = FA8A041718976BDC00344A6B /* Build configuration list for PBXNativeTarget "Currency Converter" */;
 			buildPhases = (
 				9491EEB064B543E6ADFDC6AB /* Check Pods Manifest.lock */,
 				FA8A03E118976BDC00344A6B /* Sources */,
@@ -814,9 +817,9 @@
 			);
 			dependencies = (
 			);
-			name = CurrencyConverter;
+			name = "Currency Converter";
 			productName = CurrencyConverter;
-			productReference = FA8A03E518976BDC00344A6B /* CurrencyConverter.app */;
+			productReference = FA8A03E518976BDC00344A6B /* Converter.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FA8A040518976BDC00344A6B /* CurrencyConverterTests */ = {
@@ -864,7 +867,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA8A03E418976BDC00344A6B /* CurrencyConverter */,
+				FA8A03E418976BDC00344A6B /* Currency Converter */,
 				FA8A040518976BDC00344A6B /* CurrencyConverterTests */,
 			);
 		};
@@ -1005,6 +1008,7 @@
 				FA30622B18983A8200E49D1B /* Vietnam.png in Resources */,
 				FA30619318983A8200E49D1B /* Costa-Rica.png in Resources */,
 				FA3061B718983A8200E49D1B /* India.png in Resources */,
+				FA14DF8B18B8637900FCD54A /* Media.xcassets in Resources */,
 				FA3061F418983A8200E49D1B /* Peru.png in Resources */,
 				FA3061BA18983A8200E49D1B /* Iraq.png in Resources */,
 				FA30622C18983A8200E49D1B /* Yemen.png in Resources */,
@@ -1151,7 +1155,7 @@
 /* Begin PBXTargetDependency section */
 		FA8A040C18976BDC00344A6B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FA8A03E418976BDC00344A6B /* CurrencyConverter */;
+			target = FA8A03E418976BDC00344A6B /* Currency Converter */;
 			targetProxy = FA8A040B18976BDC00344A6B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1265,7 +1269,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
 				INFOPLIST_FILE = "CurrencyConverter/CurrencyConverter-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Converter;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1279,7 +1283,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CurrencyConverter/CurrencyConverter-Prefix.pch";
 				INFOPLIST_FILE = "CurrencyConverter/CurrencyConverter-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Converter;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1340,7 +1344,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA8A041718976BDC00344A6B /* Build configuration list for PBXNativeTarget "CurrencyConverter" */ = {
+		FA8A041718976BDC00344A6B /* Build configuration list for PBXNativeTarget "Currency Converter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA8A041818976BDC00344A6B /* Debug */,
