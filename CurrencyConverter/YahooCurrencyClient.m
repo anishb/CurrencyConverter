@@ -42,45 +42,58 @@
 					   to:(NSArray *)targetCurrencies
 			 withResponse:(YahooCurrencyResponse)response
 {
-	NSUInteger numTargets = [targetCurrencies count];
-	NSMutableString *query = [[NSMutableString alloc] init];
-	[query appendString:@"select * from yahoo.finance.xchange where pair in ("];
-	for (int i = 0; i < numTargets; i++) {
-		if (i == numTargets - 1) {
-			[query appendFormat:@"\"%@%@\"", sourceCurrency, [targetCurrencies objectAtIndex:i]];
-		} else {
-			[query appendFormat:@"\"%@%@\",", sourceCurrency, [targetCurrencies objectAtIndex:i]];
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		ExchangeRate *rate = [ExchangeRate load];
+		if (rate && ![rate isStale]) {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				response(rate, nil);
+			});
+			return;
 		}
-	}
-	[query appendString:@")"];
-	NSDictionary *params = @{@"q": query,
-							 @"format": @"json",
-							 @"env": @"store://datatables.org/alltableswithkeys"};
-	[self GET:@"/v1/public/yql"
-   parameters:params
-	  success:^(NSURLSessionDataTask *task, id responseObject) {
-		  NSDictionary *query = [responseObject objectForKey:@"query"];
-		  NSString *created = [query objectForKey:@"created"];
-		  NSDate *lastUpdated = [self dateFromString:created];
-		  NSDictionary *results = [query objectForKey:@"results"];
-		  NSArray *rates = [results objectForKey:@"rate"];
-		  NSMutableDictionary *exchanges = [[NSMutableDictionary alloc] initWithCapacity:[rates count]];
-		  for (NSDictionary *rate in rates) {
-			  NSString *name = [rate objectForKey:@"Name"];
-			  NSString *currency = [[name componentsSeparatedByString:@" "] lastObject];
-			  NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-			  [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-			  NSNumber *exchange = [formatter numberFromString:[rate objectForKey:@"Rate"]];
-			  [exchanges setObject:exchange forKey:currency];
-		  }
-		  ExchangeRate *exchangeRate = [[ExchangeRate alloc] init];
-		  exchangeRate.baseCurrencyCode = sourceCurrency;
-		  exchangeRate.rates = exchanges;
-		  exchangeRate.lastUpdated = lastUpdated;
-		  response(exchangeRate, nil);
-	  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-		  response(nil, error);
-	  }];
+		
+		NSUInteger numTargets = [targetCurrencies count];
+		NSMutableString *query = [[NSMutableString alloc] init];
+		[query appendString:@"select * from yahoo.finance.xchange where pair in ("];
+		for (int i = 0; i < numTargets; i++) {
+			if (i == numTargets - 1) {
+				[query appendFormat:@"\"%@%@\"", sourceCurrency, [targetCurrencies objectAtIndex:i]];
+			} else {
+				[query appendFormat:@"\"%@%@\",", sourceCurrency, [targetCurrencies objectAtIndex:i]];
+			}
+		}
+		[query appendString:@")"];
+		NSDictionary *params = @{@"q": query,
+								 @"format": @"json",
+								 @"env": @"store://datatables.org/alltableswithkeys"};
+		[self GET:@"/v1/public/yql"
+	   parameters:params
+		  success:^(NSURLSessionDataTask *task, id responseObject) {
+			  NSDictionary *query = [responseObject objectForKey:@"query"];
+			  NSString *created = [query objectForKey:@"created"];
+			  NSDate *lastUpdated = [self dateFromString:created];
+			  NSDictionary *results = [query objectForKey:@"results"];
+			  NSArray *rates = [results objectForKey:@"rate"];
+			  NSMutableDictionary *exchanges = [[NSMutableDictionary alloc] initWithCapacity:[rates count]];
+			  for (NSDictionary *rate in rates) {
+				  NSString *name = [rate objectForKey:@"Name"];
+				  NSString *currency = [[name componentsSeparatedByString:@" "] lastObject];
+				  NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+				  [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+				  NSNumber *exchange = [formatter numberFromString:[rate objectForKey:@"Rate"]];
+				  [exchanges setObject:exchange forKey:currency];
+			  }
+			  ExchangeRate *exchangeRate = [[ExchangeRate alloc] init];
+			  exchangeRate.baseCurrencyCode = sourceCurrency;
+			  exchangeRate.rates = exchanges;
+			  exchangeRate.lastUpdated = lastUpdated;
+			  [exchangeRate save];
+			  dispatch_async(dispatch_get_main_queue(), ^{
+				  response(exchangeRate, nil);
+			  });
+		  } failure:^(NSURLSessionDataTask *task, NSError *error) {
+			  response(nil, error);
+		  }];
+	});
 }
 
 @end

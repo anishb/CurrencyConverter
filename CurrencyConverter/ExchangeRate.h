@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ExchangeRate : NSObject
+@interface ExchangeRate : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *baseCurrencyCode;
 @property (nonatomic, copy) NSDictionary *rates;
 @property (nonatomic, copy) NSDate *lastUpdated;
 
++ (ExchangeRate *)load;
+- (BOOL)save;
+- (BOOL)isStale;
 - (double)rateFrom:(NSString *)baseCurrencyCode
 				to:(NSString *)targetCurrencyCode;
+
 
 @end

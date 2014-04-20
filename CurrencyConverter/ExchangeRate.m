@@ -8,7 +8,44 @@
 
 #import "ExchangeRate.h"
 
+int const kExchangeRateTTL = 600; // 600s or 10min
+NSString *const kKeyBaseCurencyCode = @"baseCurrencyCode";
+NSString *const kKeyRates = @"rates";
+NSString *const kKeyLastUpdated = @"lastUpdated";
+
 @implementation ExchangeRate
+
++ (ExchangeRate *)load;
+{
+	ExchangeRate *rate = [NSKeyedUnarchiver unarchiveObjectWithFile:[ExchangeRate filePath]];
+	return rate;
+}
+
+- (BOOL)save
+{
+	BOOL result = [NSKeyedArchiver archiveRootObject:self toFile:[ExchangeRate filePath]];
+	return result;
+}
+
++ (NSString *)filePath
+{
+	NSString *docsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	NSString *filePath = [docsPath stringByAppendingPathComponent:@"rates"];
+	return filePath;
+}
+
+- (BOOL)isStale
+{
+	if (nil == self.lastUpdated) {
+		return YES;
+	}
+	NSTimeInterval lapsedTime = fabs([self.lastUpdated timeIntervalSinceNow]);
+	if (lapsedTime > kExchangeRateTTL) {
+		return YES;
+	}
+	
+	return NO;
+}
 
 - (double)rateFrom:(NSString *)baseCurrencyCode
 				to:(NSString *)targetCurrencyCode
@@ -26,6 +63,28 @@
 	// Otherwise get USD to base rate and then multipy by target to USD rate
 	return (1.0 / [[self.rates objectForKey:baseCurrencyCode] doubleValue]) *
 		[[self.rates objectForKey:targetCurrencyCode] doubleValue];
+}
+
+
+#pragma mark - NSCoding
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super init];
+	if (self) {
+		self.baseCurrencyCode = [aDecoder decodeObjectForKey:kKeyBaseCurencyCode];
+		self.rates = [aDecoder decodeObjectForKey:kKeyRates];
+		self.lastUpdated = [aDecoder decodeObjectForKey:kKeyLastUpdated];
+	}
+	
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+	[aCoder encodeObject:self.baseCurrencyCode forKey:kKeyBaseCurencyCode];
+	[aCoder encodeObject:self.rates forKey:kKeyRates];
+	[aCoder encodeObject:self.lastUpdated forKey:kKeyLastUpdated];
 }
 
 @end
