@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *baseCurrencyCode;
 @property (nonatomic, copy) NSDictionary *rates;
+@property (nonatomic, copy) NSDate *lastUpdated;
 
 - (double)rateFrom:(NSString *)baseCurrencyCode
 				to:(NSString *)targetCurrencyCode;

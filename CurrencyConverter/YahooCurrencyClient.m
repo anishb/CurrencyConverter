@@ -24,6 +24,20 @@
 	return _client;
 }
 
+- (NSDate *)dateFromString:(NSString *)dateString
+{
+	NSCharacterSet *characters = [NSCharacterSet characterSetWithCharactersInString:@"TZ"];
+	NSArray *dateComponents = [dateString componentsSeparatedByCharactersInSet:characters];
+	NSString *formattedDateString = [NSString stringWithFormat:@"%@ %@", dateComponents[0], dateComponents[1]];
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+	NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+	[formatter setTimeZone:gmt];
+	NSDate *date = [formatter dateFromString:formattedDateString];
+	
+	return date;
+}
+
 - (void)exchangeRatesFrom:(NSString *)sourceCurrency
 					   to:(NSArray *)targetCurrencies
 			 withResponse:(YahooCurrencyResponse)response
@@ -46,6 +60,8 @@
    parameters:params
 	  success:^(NSURLSessionDataTask *task, id responseObject) {
 		  NSDictionary *query = [responseObject objectForKey:@"query"];
+		  NSString *created = [query objectForKey:@"created"];
+		  NSDate *lastUpdated = [self dateFromString:created];
 		  NSDictionary *results = [query objectForKey:@"results"];
 		  NSArray *rates = [results objectForKey:@"rate"];
 		  NSMutableDictionary *exchanges = [[NSMutableDictionary alloc] initWithCapacity:[rates count]];
@@ -60,6 +76,7 @@
 		  ExchangeRate *exchangeRate = [[ExchangeRate alloc] init];
 		  exchangeRate.baseCurrencyCode = sourceCurrency;
 		  exchangeRate.rates = exchanges;
+		  exchangeRate.lastUpdated = lastUpdated;
 		  response(exchangeRate, nil);
 	  } failure:^(NSURLSessionDataTask *task, NSError *error) {
 		  response(nil, error);
