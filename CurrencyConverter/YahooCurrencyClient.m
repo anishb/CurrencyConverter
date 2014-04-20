@@ -86,10 +86,10 @@
 			  exchangeRate.baseCurrencyCode = sourceCurrency;
 			  exchangeRate.rates = exchanges;
 			  exchangeRate.lastUpdated = lastUpdated;
-			  [exchangeRate save];
-			  dispatch_async(dispatch_get_main_queue(), ^{
-				  response(exchangeRate, nil);
+			  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+				 [exchangeRate save];
 			  });
+			  response(exchangeRate, nil);
 		  } failure:^(NSURLSessionDataTask *task, NSError *error) {
 			  response(nil, error);
 		  }];
