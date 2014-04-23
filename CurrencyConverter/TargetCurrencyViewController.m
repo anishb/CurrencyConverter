@@ -12,6 +12,7 @@
 #import "YahooCurrencyClient.h"
 #import "CurrencyPickerViewController.h"
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 #define DEFAULTS_KEY_TARGET_CURRENCIES @"targetCurrencies"
 
@@ -122,12 +123,12 @@
 
 - (void)updateExchangeRates
 {
-	__weak TargetCurrencyViewController *weakSelf = self;
-	if (!weakSelf.updating) {
-		weakSelf.updating = YES;
+	if (!self.updating) {
+		self.updating = YES;
+		__weak TargetCurrencyViewController *weakSelf = self;
 		[[YahooCurrencyClient client] exchangeRatesFrom:@"USD"
 													 to:[[CurrencyManager default] allCurrencyCodes]
-										   withResponse:^(ExchangeRate *rates, NSError *error) {
+										   withResponse:^(ExchangeRate *rates, BOOL fromCache, NSError *error) {
 											   if (error) {
 												   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Exchange rate retreival failed"
 																									   message:[error localizedDescription]
@@ -135,19 +136,22 @@
 																							 cancelButtonTitle:@"OK"
 																							 otherButtonTitles:nil];
 												   [alertView show];
+											   }
+											   if (weakSelf.refreshControl.refreshing) {
 												   [weakSelf.refreshControl endRefreshing];
-											   } else {
+											   }
+											   if (rates) {
 												   weakSelf.rates = rates;
-												   if (weakSelf.refreshControl.refreshing) {
-													   [weakSelf.refreshControl endRefreshing];
-												   }
+												   ViewController *parentController = (ViewController *)self.parentViewController;
+												   [parentController updateLastUpdatedLabel:rates.lastUpdated
+																				   animated:!fromCache];
 												   [weakSelf.tableView reloadData];
 											   }
 											   weakSelf.updating = NO;
 											   if (self.loadingSpinner) {
 												   [weakSelf hideSpinner];
-											   }
-										   }];
+												}
+											}];
 	}
 }
 

@@ -10,4 +10,6 @@
 
 @interface ViewController : UIViewController
 
+- (void)updateLastUpdatedLabel:(NSDate *)date animated:(BOOL)animated;
+
 @end

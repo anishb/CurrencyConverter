@@ -8,7 +8,7 @@
 
 #import "ExchangeRate.h"
 
-int const kExchangeRateTTL = 600; // 600s or 10min
+int const kExchangeRateTTL = 60; // 60s or 1min
 NSString *const kKeyBaseCurencyCode = @"baseCurrencyCode";
 NSString *const kKeyRates = @"rates";
 NSString *const kKeyLastUpdated = @"lastUpdated";

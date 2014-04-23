@@ -57,12 +57,27 @@
                                     <segue destination="fOz-fI-e2G" kind="embed" id="IHN-D3-9YI"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" id="SR4-TM-8l0">
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rates updated 4/22/14 5:32 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q4x-9z-UY9">
+                                        <rect key="frame" x="20" y="10" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="CurrencyConverter" id="8qC-bV-r3Z"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="lastUpdatedLabel" destination="q4x-9z-UY9" id="Tmg-Xj-KtL"/>
                         <outlet property="sourceCurrencyAmountField" destination="V4f-8J-QY0" id="Zbu-lN-7vb"/>
                         <outlet property="sourceCurrencyCodeLabel" destination="e1V-DG-k3H" id="JzX-EU-w9z"/>
                         <outlet property="sourceCurrencyFlagView" destination="GjJ-fl-r3O" id="Fsd-ky-Uee"/>

@@ -46,7 +46,7 @@
 		ExchangeRate *rate = [ExchangeRate load];
 		if (rate && ![rate isStale]) {
 			dispatch_async(dispatch_get_main_queue(), ^{
-				response(rate, nil);
+				response(rate, YES, nil);
 			});
 			return;
 		}
@@ -89,9 +89,9 @@
 			  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 				 [exchangeRate save];
 			  });
-			  response(exchangeRate, nil);
+			  response(exchangeRate, NO, nil);
 		  } failure:^(NSURLSessionDataTask *task, NSError *error) {
-			  response(nil, error);
+			  response(rate, YES, error);
 		  }];
 	});
 }

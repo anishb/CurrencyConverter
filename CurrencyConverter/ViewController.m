@@ -23,6 +23,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *sourceCurrencyFlagView;
 @property (nonatomic, weak) IBOutlet UITextField *sourceCurrencyAmountField;
 @property (nonatomic, strong) NSString *sourceCurrency;
+@property (nonatomic, weak) IBOutlet UILabel *lastUpdatedLabel;
 @end
 
 @implementation ViewController
@@ -74,7 +75,34 @@
 																				   target:tvc
 																				   action:@selector(addTargetCurrency)];
 	self.navigationItem.rightBarButtonItem = barButtonItem;
+	
+	self.lastUpdatedLabel.text = @"";
 }
+
+//- (void)setupNavigationBar
+//{
+//	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 21)];
+//	titleLabel.text = @"Currency Converter";
+//	titleLabel.textAlignment = NSTextAlignmentCenter;
+//	titleLabel.textColor = [UIColor whiteColor];
+//	titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0f];
+//	
+//	UILabel *lastUpdatedLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,
+//																		  CGRectGetMaxY(titleLabel.frame),
+//																		  self.view.bounds.size.width,
+//																		  18)];
+//	lastUpdatedLabel.text = @"4/22/14 5:00 PM"; //TODO: Make this empty string
+//	lastUpdatedLabel.textAlignment = NSTextAlignmentCenter;
+//	lastUpdatedLabel.textColor = [UIColor whiteColor];
+//	lastUpdatedLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
+//	
+//	UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width,
+//																  CGRectGetMaxY(lastUpdatedLabel.frame))];
+//	[customView addSubview:titleLabel];
+//	[customView addSubview:lastUpdatedLabel];
+//	
+//	self.navigationItem.titleView = customView;
+//}
 
 - (void)setupSourceCurrency:(NSString *)currencyCode
 {
@@ -175,6 +203,19 @@
 - (void)editSourceCurrency:(UIGestureRecognizer *)gesture
 {
 	[self.sourceCurrencyAmountField becomeFirstResponder];
+}
+
+#pragma mark - Public methods
+
+- (void)updateLastUpdatedLabel:(NSDate *)date animated:(BOOL)animated
+{
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateStyle:NSDateFormatterShortStyle];
+	[formatter setTimeStyle:NSDateFormatterShortStyle];
+	[formatter setDoesRelativeDateFormatting:YES];
+	[formatter setTimeZone:[NSTimeZone systemTimeZone]];
+	NSString *updated = [formatter stringFromDate:date];
+	self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Rates updated %@", updated];
 }
 
 #pragma mark - UITextFieldDelegate
