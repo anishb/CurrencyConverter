@@ -209,13 +209,21 @@
 
 - (void)updateLastUpdatedLabel:(NSDate *)date animated:(BOOL)animated
 {
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateStyle:NSDateFormatterShortStyle];
-	[formatter setTimeStyle:NSDateFormatterShortStyle];
-	[formatter setDoesRelativeDateFormatting:YES];
-	[formatter setTimeZone:[NSTimeZone systemTimeZone]];
-	NSString *updated = [formatter stringFromDate:date];
-	self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Rates updated %@", updated];
+	if (nil == date) {
+		self.lastUpdatedLabel.text = @"Rates not available";
+	} else {
+		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+		[formatter setDateStyle:NSDateFormatterShortStyle];
+		[formatter setTimeStyle:NSDateFormatterShortStyle];
+		[formatter setDoesRelativeDateFormatting:YES];
+		[formatter setTimeZone:[NSTimeZone systemTimeZone]];
+		NSString *updated = [formatter stringFromDate:date];
+		self.lastUpdatedLabel.text = [NSString stringWithFormat:@"Rates updated %@", updated];
+	}
+	
+	if (animated) {
+		// TODO: Animate lastUpdateLabel
+	}
 }
 
 #pragma mark - UITextFieldDelegate

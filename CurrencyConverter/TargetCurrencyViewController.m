@@ -140,12 +140,15 @@
 											   if (weakSelf.refreshControl.refreshing) {
 												   [weakSelf.refreshControl endRefreshing];
 											   }
+											   ViewController *parentController = (ViewController *)self.parentViewController;
 											   if (rates) {
 												   weakSelf.rates = rates;
-												   ViewController *parentController = (ViewController *)self.parentViewController;
 												   [parentController updateLastUpdatedLabel:rates.lastUpdated
 																				   animated:!fromCache];
 												   [weakSelf.tableView reloadData];
+											   } else {
+												   [parentController updateLastUpdatedLabel:nil
+																				   animated:YES];
 											   }
 											   weakSelf.updating = NO;
 											   if (self.loadingSpinner) {
