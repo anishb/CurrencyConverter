@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "YahooCurrencyClient.h"
+#import "CurrencyManager.h"
 
 @implementation AppDelegate
 
@@ -17,7 +19,32 @@
 	[[UILabel appearance] setTextColor:[UIColor whiteColor]];
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 	
+	// Enable background fetch
+	[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+	
     return YES;
+}
+
+- (void)application:(UIApplication *)application
+performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+	NSLog(@"Performing background fetch");
+	
+	[[YahooCurrencyClient client] exchangeRatesFrom:@"USD"
+												 to:[[CurrencyManager default] allCurrencyCodes]
+									   withResponse:^(ExchangeRate *rates, BOOL fromCache, NSError *error) {
+						if (nil != error) {
+							NSLog(@"Fetch failed");
+							completionHandler(UIBackgroundFetchResultFailed);
+						} else if (fromCache) {
+							NSLog(@"No new data, using cached data");
+							completionHandler(UIBackgroundFetchResultNoData);
+						} else {
+							NSLog(@"Fetched new data");
+							completionHandler(UIBackgroundFetchResultNewData);
+						}
+	}];
+
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

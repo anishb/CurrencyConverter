@@ -851,6 +851,11 @@
 				TargetAttributes = {
 					FA8A03E418976BDC00344A6B = {
 						DevelopmentTeam = H4F2VD8RSQ;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					FA8A040518976BDC00344A6B = {
 						TestTargetID = FA8A03E418976BDC00344A6B;
