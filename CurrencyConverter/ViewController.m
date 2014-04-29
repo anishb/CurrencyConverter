@@ -205,6 +205,18 @@
 	[self.sourceCurrencyAmountField becomeFirstResponder];
 }
 
+- (void)blinkLastUpdatedLabel
+{
+	CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+	[animation setFromValue:[NSNumber numberWithFloat:1.0]];
+	[animation setToValue:[NSNumber numberWithFloat:0.0]];
+	[animation setDuration:0.7];
+	[animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+	[animation setAutoreverses:YES];
+	[animation setRepeatCount:2];
+	[self.lastUpdatedLabel.layer addAnimation:animation forKey:@"opacity"];
+}
+
 #pragma mark - Public methods
 
 - (void)updateLastUpdatedLabel:(NSDate *)date animated:(BOOL)animated
@@ -222,7 +234,7 @@
 	}
 	
 	if (animated) {
-		// TODO: Animate lastUpdateLabel
+		[self blinkLastUpdatedLabel];
 	}
 }
 
