@@ -60,6 +60,22 @@
 	
 	// Show spinner until rates are retrieved for the first time
 	[self showSpinner];
+	
+	// Listen for notification for app coming to foreground
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(appCameToForeground:)
+												 name:UIApplicationDidBecomeActiveNotification
+											   object:nil];
+}
+
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)appCameToForeground:(NSNotification *)notification
+{
+	[self updateExchangeRates];
 }
 
 - (void)showSpinner
