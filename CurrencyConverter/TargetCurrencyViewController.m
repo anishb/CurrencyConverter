@@ -43,7 +43,7 @@
 	self.tableView.backgroundColor = BACKGROUND_COLOR;
 	
 	// Setup target currencies
-	self.targetCurrencies = [[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_KEY_TARGET_CURRENCIES];
+    self.targetCurrencies = [[[NSUserDefaults standardUserDefaults] objectForKey:DEFAULTS_KEY_TARGET_CURRENCIES] mutableCopy];
 	if (!self.targetCurrencies) {
 		self.targetCurrencies = [[NSMutableArray alloc] init];
 	}
