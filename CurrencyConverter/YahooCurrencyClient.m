@@ -76,7 +76,7 @@
 			  NSMutableDictionary *exchanges = [[NSMutableDictionary alloc] initWithCapacity:[rates count]];
 			  for (NSDictionary *rate in rates) {
 				  NSString *name = [rate objectForKey:@"Name"];
-				  NSString *currency = [[name componentsSeparatedByString:@" "] lastObject];
+				  NSString *currency = [[name componentsSeparatedByString:@"/"] lastObject];
 				  NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 				  [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
 				  NSNumber *exchange = [formatter numberFromString:[rate objectForKey:@"Rate"]];
